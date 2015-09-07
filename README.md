@@ -1,3 +1,15 @@
+# New Name: Generator-M-Ionic
+Generator-M is now called **Generator-M-Ionic**.
+
+#### Install the new generator
+
+`npm install --global generator-m-ionic`
+
+#### More info
+- Check out the new repository: https://github.com/mwaylabs/generator-m-ionic
+- Learn why we renamed it
+
+
 # Generator-M
 
 [![NPM version](http://img.shields.io/npm/v/generator-m.svg?style=flat-square)][npm-url]
