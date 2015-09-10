@@ -10,15 +10,15 @@ Generator-M is now called **Generator-M-Ionic** and all further versions are rel
 # Generator-M
 
 [![NPM version](http://img.shields.io/npm/v/generator-m.svg?style=flat-square)][npm-url]
-[![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m.svg?style=flat-square)][coveralls-url]
-[![Build Status](https://img.shields.io/travis/mwaylabs/generator-m.svg?style=flat-square)][travis-url]
-[![Dependency Status](http://img.shields.io/david/mwaylabs/generator-m.svg?style=flat-square)][daviddm-url]
+[![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m/master.svg?style=flat-square)][coveralls-url]
+[![Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][travis-url]
+[![Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][daviddm-url]
 [![Download Month](http://img.shields.io/npm/dm/generator-m.svg?style=flat-square)][npm-url]
 
-[npm-url]: https://npmjs.org/package/generator-m
+[npm-url]: https://npmjs.org/package/generator-m-ionic
 [coveralls-url]: https://coveralls.io/r/mwaylabs/generator-m?branch=master
-[travis-url]: https://travis-ci.org/mwaylabs/generator-m
-[daviddm-url]: https://david-dm.org/mwaylabs/generator-m
+[travis-url]: https://travis-ci.org/mwaylabs/generator-m-ionic
+[daviddm-url]: https://david-dm.org/mwaylabs/generator-m-ionic
 
 
 
