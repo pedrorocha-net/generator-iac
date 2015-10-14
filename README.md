@@ -1,4 +1,4 @@
-# Generator-M-Ionic
+# Ionic Apps Console
 
 [![NPM version](http://img.shields.io/npm/v/generator-m-ionic.svg?style=flat-square)][npm-url]
 [![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][coveralls-url]
@@ -17,14 +17,8 @@ Development:
 [![Dev Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][travis-url]
 [![Dev Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)](https://david-dm.org/mwaylabs/generator-m-ionic/dev)
 
-
-## Looking for Generator-M?
-This is it! We changed the name to better reflect what this generator is all about. Read more [here](https://github.com/mwaylabs/generator-m-ionic/wiki/Name-Change)!
-
-
-## Why you need it
-Build mobile Cordova/PhoneGap apps quickly with the tools you love:
-Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy generator.
+## Why Ionic Apps Console
+It's a CLI to help you quickly start developing mobile apps with Ionic Framework, using great tools to increase your development productivity while applying some of the best practices known. It uses the following tools for now: Yeoman, Gulp, Bower, AngularJS, Ionic & Cordova. All bundled in an easy to use generator.
 
 ### What's in the box
 
@@ -94,14 +88,6 @@ and many many **features and tools** for your convenience:
   - continuous integration with [Travis CI](https://travis-ci.org/) and [Jenkins CI](https://jenkins-ci.org/)
   - code style checks with [ESLint](http://eslint.org/)
   - configuration files like [.editorconfig](http://editorconfig.org/), [.gitignore](http://git-scm.com/docs/gitignore), [.gitattriubtes](http://git-scm.com/docs/gitattributes) and others
-
-
-## Try the demo
-For a quick impression head over to https://github.com/mwaylabs/generator-m-ionic-demo and clone the sample project generated with the latest version of Generator-M-Ionic.
-
-
-## Questions? Talk to us!
-[![Join the chat at https://gitter.im/mwaylabs/generator-m-ionic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mwaylabs/generator-m-ionic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Install
 
@@ -455,13 +441,6 @@ yo m-ionic --ios-only # in conjunction with --skip-prompts
 yo m-ionic --android-only # in conjunction with --skip-prompts
 yo m-ionic --no-cordova # in conjunction with --skip-prompts, no platforms/plugins
 ```
-
-## Want to contribute?
-Start by reading our:
-
-1. [Mission Statement](https://github.com/mwaylabs/generator-m-ionic/wiki/Mission-Statement)
-1. [Contribution Guide](https://github.com/mwaylabs/generator-m-ionic/wiki/Contribution-Guide)
-
 
 ## License
 Code licensed under MIT. Docs under Apache 2. PhoneGap is a trademark of Adobe.
