@@ -1,14 +1,14 @@
 {
-  "name": "generator-m-ionic",
-  "version": "1.3.4",
-  "description": "Build mobile Cordova/PhoneGap apps quickly with the tools you love: Yeoman, Gulp, Bower, AngularJS, Ionic & of course Cordova. All in one sexy generator.",
+  "name": "ionic-apps-console",
+  "version": "1.0.0",
+  "description": "CLI to help you quickly start developing mobile apps with Ionic Framework, using great tools to increase your development productivity while applying some of the best practices known.",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "mwaylabs/generator-m-ionic",
+  "repository": "pedrorocha-net/ionic-apps-console",
   "author": {
-    "name": "Jonathan Grupp",
-    "email": "j.grupp@mwaysolutions.com",
-    "url": "https://github.com/gruppjo"
+    "name": "Pedro Rocha",
+    "email": "pedrogomesrocha@gmail.com",
+    "url": "https://github.com/pedrorocha-net"
   },
   "engines": {
     "node": ">=0.10.0",
