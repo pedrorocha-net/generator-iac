@@ -50,7 +50,7 @@ Development:
     <img height="50" src="https://cloud.githubusercontent.com/assets/1370779/9410216/44fef8fc-481f-11e5-8037-2f7f03678f4c.png">
   </a>
   <a href="http://jasmine.github.io/" target="_blank" alt="jasmine" title="jasmine">
-    <img height="100" src="https://cloud.githubusercontent.com/assets/1370779/9410153/ebd46a00-481e-11e5-9864-f00fa8427d17.png">
+    <img height="50" src="https://cloud.githubusercontent.com/assets/1370779/9410153/ebd46a00-481e-11e5-9864-f00fa8427d17.png">
   </a>
   <a href="https://angular.github.io/protractor/#/" target="_blank" alt="protractor" title="protractor">
     <img height="50" src="https://cloud.githubusercontent.com/assets/1370779/9410114/b99aaa9a-481e-11e5-8655-ebc1e324200d.png">
