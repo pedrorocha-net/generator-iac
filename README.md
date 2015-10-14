@@ -5,22 +5,22 @@ It's a CLI to help you quickly start developing mobile apps with Ionic Framework
 
 ## Development info
 
-[![NPM version](http://img.shields.io/npm/v/generator-m-ionic.svg?style=flat-square)][npm-url]
-[![Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][coveralls-url]
-[![Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][travis-url]
-[![Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/master.svg?style=flat-square)][daviddm-url]
-[![Download Month](http://img.shields.io/npm/dm/generator-m.svg?style=flat-square)][npm-url]
+[![NPM version](http://img.shields.io/npm/v/ionic-apps-console.svg?style=flat-square)][npm-url]
+[![Coverage Status](http://img.shields.io/coveralls/pedrorocha-net/ionic-apps-console/master.svg?style=flat-square)][coveralls-url]
+[![Build Status](https://img.shields.io/travis/pedrorocha-net/ionic-apps-console/master.svg?style=flat-square)][travis-url]
+[![Dependency Status](http://img.shields.io/david/pedrorocha-net/ionic-apps-console/master.svg?style=flat-square)][daviddm-url]
+[![Download Month](http://img.shields.io/npm/dm/ionic-apps-console.svg?style=flat-square)][npm-url]
 
 [npm-url]: https://npmjs.org/package/generator-m-ionic
-[coveralls-url]: https://coveralls.io/r/mwaylabs/generator-m-ionic?branch=master
-[travis-url]: https://travis-ci.org/mwaylabs/generator-m-ionic
-[daviddm-url]: https://david-dm.org/mwaylabs/generator-m-ionic
+[coveralls-url]: https://coveralls.io/r/pedrorocha-net/ionic-apps-console?branch=master
+[travis-url]: https://travis-ci.org/pedrorocha-net/ionic-apps-console
+[daviddm-url]: https://david-dm.org/pedrorocha-net/ionic-apps-console
 
 Development:
 
-[![Dev Coverage Status](http://img.shields.io/coveralls/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][coveralls-url]
-[![Dev Build Status](https://img.shields.io/travis/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)][travis-url]
-[![Dev Dependency Status](http://img.shields.io/david/mwaylabs/generator-m-ionic/dev.svg?style=flat-square)](https://david-dm.org/mwaylabs/generator-m-ionic/dev)
+[![Dev Coverage Status](http://img.shields.io/coveralls/pedrorocha-net/ionic-apps-console/dev.svg?style=flat-square)][coveralls-url]
+[![Dev Build Status](https://img.shields.io/travis/pedrorocha-net/ionic-apps-console/dev.svg?style=flat-square)][travis-url]
+[![Dev Dependency Status](http://img.shields.io/david/pedrorocha-net/ionic-apps-console/dev.svg?style=flat-square)](https://david-dm.org/pedrorocha-net/ionic-apps-console/dev)
 
 ## Inside the box
 
