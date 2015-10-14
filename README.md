@@ -89,9 +89,6 @@ and many many **features and tools** for your convenience:
   - code style checks with [ESLint](http://eslint.org/)
   - configuration files like [.editorconfig](http://editorconfig.org/), [.gitignore](http://git-scm.com/docs/gitignore), [.gitattriubtes](http://git-scm.com/docs/gitattributes) and others
 
-## Acknowledgements
-Despite we know that it's already mentioned above, it's important to congrats and thanks the guys from @mwaylabs, that started the project that was the base for what we are creating here. We want to have something more tied to our needs, so we are forking it, but they did a pretty good work.
-
 ## Documentation
 1. [Install](https://github.com/pedrorocha-net/generator-iac/wiki/Install)
 2. [Generate App](https://github.com/pedrorocha-net/generator-iac/wiki/Generate-App)
@@ -107,3 +104,6 @@ Despite we know that it's already mentioned above, it's important to congrats an
 
 ## License
 Code licensed under MIT. Docs under Apache 2. PhoneGap is a trademark of Adobe.
+
+## Acknowledgements
+Despite we know that it's already mentioned above, it's important to congrats and thanks the guys from @mwaylabs, that started the project that was the base for what we are creating here. We want to have something more tied to our needs, so we are forking it, but they did a pretty good work.
