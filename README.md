@@ -103,7 +103,7 @@ and many many **features and tools** for your convenience:
 ### Generator
 
 ```sh
-npm install --global generator-m-ionic
+npm install --global generator-iac
 ```
 
 
@@ -114,9 +114,9 @@ mkdir myApp && cd $_
 ```
 **run the generator** - and follow the instructions
 ```sh
-yo m-ionic
+yo iac
 ```
-**IMPORTANT:** Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo m-ionic`.
+**IMPORTANT:** Cordova needs an empty directory to work. Please run any other setup (e.g. `git init`) after running `yo iac`.
 
 ## Get started
 #### gulp watch
