@@ -39,7 +39,7 @@ module.exports = yeoman.generators.Base.extend({
     // say hello
     if (!this.options['skip-welcome-message']) { // for use with generator-m-server
       this.log(yosay(
-        'Welcome to the polished Generator-M-Ionic! v.' + this.pkg.version
+        'Welcome to the Ionic Apps Console generator! v.' + this.pkg.version
       ));
     }
 
