@@ -6,21 +6,15 @@ It's a CLI to help you quickly start developing mobile apps with Ionic Framework
 ## Development info
 
 [![NPM version](http://img.shields.io/npm/v/generator-iac.svg?style=flat-square)][npm-url]
-[![Coverage Status](http://img.shields.io/coveralls/pedrorocha-net/generator-iac/master.svg?style=flat-square)][coveralls-url]
 [![Build Status](https://img.shields.io/travis/pedrorocha-net/generator-iac/master.svg?style=flat-square)][travis-url]
 [![Dependency Status](http://img.shields.io/david/pedrorocha-net/generator-iac/master.svg?style=flat-square)][daviddm-url]
 [![Download Month](http://img.shields.io/npm/dm/generator-iac.svg?style=flat-square)][npm-url]
 
 [npm-url]: https://npmjs.org/package/generator-iac
-[coveralls-url]: https://coveralls.io/r/pedrorocha-net/generator-iac?branch=master
 [travis-url]: https://travis-ci.org/pedrorocha-net/generator-iac
 [daviddm-url]: https://david-dm.org/pedrorocha-net/generator-iac
 
-Development:
 
-[![Dev Coverage Status](http://img.shields.io/coveralls/pedrorocha-net/ionicgenerator-iac/dev.svg?style=flat-square)][coveralls-url]
-[![Dev Build Status](https://img.shields.io/travis/pedrorocha-net/generator-iac/dev.svg?style=flat-square)][travis-url]
-[![Dev Dependency Status](http://img.shields.io/david/pedrorocha-net/generator-iac/dev.svg?style=flat-square)](https://david-dm.org/pedrorocha-net/generator-iac/dev)
 
 ## Inside the box
 
