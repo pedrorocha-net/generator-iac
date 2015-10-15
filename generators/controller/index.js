@@ -4,22 +4,25 @@ var utils = require('../../utils/utils.js');
 
 module.exports = yeoman.generators.NamedBase.extend({
 
-  initializing: function () {
-    this.argument('module', { type: String, required: false });
-    this.moduleName = utils.checkModule(this.module);
+  initializing: function (args, options) {
+
+    this.currentFolder = args;
+    this.nameNewFile = options;
+
+    this.moduleName = utils.checkModule(this.nameNewFile);
     this.serviceName = utils.serviceName(this.moduleName);
     this.configName = utils.configName(this.moduleName);
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
+    this.moduleFolder = utils.moduleFolder(this.currentFolder);
 
-    this.log('You called the m-ionic:controller subgenerator.');
+    this.log('You called the iac:controller subgenerator.');
 
-    this.controllerName = utils.controllerName(this.name);
+    this.controllerName = utils.controllerName(this.moduleName);
     this.fileName = utils.fileName(this.controllerName);
   },
 
   writing: function () {
     // create controller with snake-case file name
-    var folder = 'app/' + this.moduleFolder + '/controllers/';
+    var folder = 'app/' + this.currentFolder + '/';
     this.template('_controller.js', folder + this.fileName + '.js');
     // create karma test file
     var testFolder = 'test/karma/' + this.moduleFolder + '/';

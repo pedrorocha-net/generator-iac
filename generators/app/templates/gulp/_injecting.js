@@ -67,9 +67,9 @@ gulp.task('bower-fonts', ['clean'], function () {
 <% } else { -%>
 gulp.task('bower-fonts', function () {
   // to app/main/assets/fonts (path can be set in app/main/styles/<module>.scss)
-  var DEST = 'app/main/assets/fonts';
+  var DEST = 'app/assets/fonts';
   var fontFiles = mainBowerFiles({filter: /\.(eot|otf|svg|ttf|woff|woff2)$/i})
-    .concat('app/main/assets/fonts/**/*');
+    .concat('app/assets/fonts/**/*');
 <% } -%>
 
   return gulp.src(fontFiles)
@@ -101,7 +101,7 @@ gulp.task('environment', function () {
   return gulp.src('app/*/constants/*config-const.js')
     .pipe(
       $.inject(
-        gulp.src('app/main/constants/env-' + options.env + '.json'),
+        gulp.src('app/constants/env-' + options.env + '.json'),
         {
           starttag: '/*inject-env*/',
           endtag: '/*endinject*/',

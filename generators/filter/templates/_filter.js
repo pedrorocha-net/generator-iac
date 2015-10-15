@@ -1,7 +1,9 @@
 'use strict';
 angular.module('<%= moduleName %>')
-.filter('<%= filterName %>', function () {
+.filter('<%= filterName %>', <%= filterName %>);
+
+function <%= filterName %>() {
   return function (input) {
     return '<%= filterName %> filter: ' + input;
   };
-});
+};

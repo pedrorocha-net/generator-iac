@@ -8,7 +8,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.moduleName =  utils.checkModule(this.module);
     this.moduleFolder = utils.moduleFolder(this.moduleName);
 
-    this.log('You called the m-ionic:filter subgenerator.');
+    this.log('You called the iac:filter subgenerator.');
 
     this.filterName = this.name;
     this.fileName = utils.fileName(this.filterName);
@@ -16,10 +16,10 @@ module.exports = yeoman.generators.NamedBase.extend({
 
   writing: function () {
     // create filter with snake-case file name
-    var folder = 'app/' + this.moduleFolder + '/filters/';
-    this.template('_filter.js', folder + this.fileName + '-fil.js');
+    var folder = 'app/common/';
+    this.template('_filter.js', folder + this.fileName + '-filter.js');
     // create karma test file
-    var testFolder = 'test/karma/' + this.moduleFolder + '/';
-    this.template('_filter.spec.js', testFolder + this.fileName + '-fil.spec.js');
+    var testFolder = 'test/karma/common/';
+    this.template('_filter.spec.js', testFolder + this.fileName + '-filter.spec.js');
   }
 });

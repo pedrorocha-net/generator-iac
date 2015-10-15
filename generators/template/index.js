@@ -10,7 +10,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.moduleFolder = utils.moduleFolder(this.moduleName);
     this.barColor = utils.barColor();
 
-    this.log('You called the m-ionic:template subgenerator.');
+    this.log('You called the iac:template subgenerator.');
 
     this.templateName = this.name;
     this.fileName = utils.fileName(this.templateName);
@@ -18,7 +18,7 @@ module.exports = yeoman.generators.NamedBase.extend({
 
   writing: function () {
     // create template with snake-case file name
-    var folder = 'app/' + this.moduleFolder + '/templates/';
+    var folder = 'app/templates/';
     if (!this.options.template) {
       this.template('_template.html', folder + this.fileName + '.html');
     }

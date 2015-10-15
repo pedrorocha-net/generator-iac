@@ -1,6 +1,8 @@
 'use strict';
 angular.module('<%= moduleName %>')
-.controller('<%= controllerName %>', function ($log<% if(options.template === 'debug') { %>, <%= serviceName %>, <%= configName %><% } %>) {
+.controller('<%= controllerName %>', <%= controllerName %>);
+
+function <%= controllerName %>($log<% if(options.template === 'debug') { %>, <%= serviceName %>, <%= configName %><% } %>) {
 
   $log.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this);
 
@@ -28,4 +30,4 @@ angular.module('<%= moduleName %>')
   this.grade();
 
 <% } -%>
-});
+};

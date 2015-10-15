@@ -1,6 +1,8 @@
 'use strict';
 angular.module('<%= moduleName %>')
-.service('<%= serviceName %>', function ($log<% if (options.template === 'debug') { %>, $timeout<% } %>) {
+.factory('<%= serviceName %>', <%= serviceName %>);
+
+function <%= serviceName %>($log<% if (options.template === 'debug') { %>, $timeout<% } %>) {
 
   $log.log('Hello from your Service: <%= serviceName %> in module <%= moduleName %>');
 
@@ -21,4 +23,4 @@ angular.module('<%= moduleName %>')
   };
 
 <% } -%>
-});
+};
