@@ -3,9 +3,10 @@ var yeoman = require('yeoman-generator');
 var utils = require('../../utils/utils.js');
 
 module.exports = yeoman.generators.NamedBase.extend({
-  initializing: function (args) {
+  initializing: function (args, option) {
 
-    this.nameNewFile = args;
+    this.currentFolder = args;
+    this.nameNewFile = option;
 
     this.moduleName =  utils.checkModule('main');
     this.moduleFolder = utils.moduleFolder(this.moduleName);
@@ -19,10 +20,10 @@ module.exports = yeoman.generators.NamedBase.extend({
 
   writing: function () {
     // create directive with snake-case file name
-    var folder = 'app/widgets/';
+    var folder = 'app/' + this.currentFolder + '/';
     this.template('_directive.js', folder + this.fileName + '-directive.js');
     // create karma test file
-    var testFolder = 'test/karma/widgets/';
+    var testFolder = 'test/karma/' + this.currentFolder + '/';
     this.template('_directive.spec.js', testFolder + this.fileName + '-directive.spec.js');
   }
 });
