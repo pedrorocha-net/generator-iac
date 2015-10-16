@@ -1,33 +1,37 @@
-'use strict';
-angular.module('<%= moduleName %>')
-.controller('<%= controllerName %>', <%= controllerName %>);
+(function(){
 
-function <%= controllerName %>($log<% if(options.template === 'debug') { %>, <%= serviceName %>, <%= configName %><% } %>) {
+  'use strict';
+  angular.module('<%= moduleName %>')
+  .controller('<%= controllerName %>', <%= controllerName %>);
 
-  $log.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this);
+  function <%= controllerName %>($log<% if(options.template === 'debug') { %>, <%= serviceName %>, <%= configName %><% } %>) {
 
-<% if (options.template === 'debug') {-%>
-  // bind data from services
-  this.someData = <%= serviceName %>.someData;
-  this.ENV = <%= configName %>.ENV;
-  this.BUILD = <%= configName %>.BUILD;
+    $log.log('Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this);
 
-  // PASSWORD EXAMPLE
-  this.password = {
-    input: '', // by user
-    strength: ''
+  <% if (options.template === 'debug') {-%>
+    // bind data from services
+    this.someData = <%= serviceName %>.someData;
+    this.ENV = <%= configName %>.ENV;
+    this.BUILD = <%= configName %>.BUILD;
+
+    // PASSWORD EXAMPLE
+    this.password = {
+      input: '', // by user
+      strength: ''
+    };
+    this.grade = function () {
+      var size = this.password.input.length;
+      if (size > 8) {
+        this.password.strength = 'strong';
+      } else if (size > 3) {
+        this.password.strength = 'medium';
+      } else {
+        this.password.strength = 'weak';
+      }
+    };
+    this.grade();
+
+  <% } -%>
   };
-  this.grade = function () {
-    var size = this.password.input.length;
-    if (size > 8) {
-      this.password.strength = 'strong';
-    } else if (size > 3) {
-      this.password.strength = 'medium';
-    } else {
-      this.password.strength = 'weak';
-    }
-  };
-  this.grade();
 
-<% } -%>
-};
+})();

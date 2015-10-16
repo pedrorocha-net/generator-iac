@@ -12,6 +12,7 @@ module.exports = yeoman.generators.Base.extend({
     this.argument('module', { type: String, required: false });
     this.moduleName = utils.checkModule(this.module);
 
+    this.name = this.moduleName;
     this.log('You called the iac:pair subgenerator with the argument ' + this.name + '.');
   },
 

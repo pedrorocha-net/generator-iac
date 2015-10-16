@@ -4,8 +4,7 @@ var utils = require('../../utils/utils.js');
 
 module.exports = yeoman.generators.NamedBase.extend({
   initializing: function () {
-    this.argument('module', { type: String, required: false });
-    this.moduleName =  utils.checkModule(this.module);
+    this.moduleName =  utils.checkModule('main');
     this.moduleFolder = utils.moduleFolder(this.moduleName);
 
     this.log('You called the iac:filter subgenerator.');

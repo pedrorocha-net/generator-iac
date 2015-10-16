@@ -7,16 +7,15 @@ module.exports = yeoman.generators.NamedBase.extend({
   initializing: function (args, options) {
 
     this.currentFolder = args;
-    this.nameNewFile = options;
+    this.nameNewFile = options + 'Factory';
 
-    this.module = this.currentFolder;
-    this.moduleName =  utils.checkModule(this.module);
+    this.moduleName =  utils.checkModule('main');
     this.moduleFolder = utils.moduleFolder(this.currentFolder);
 
-    this.log('You called the m-ionic:service subgenerator.');
+    this.log('You called the iac:service subgenerator.');
 
     this.serviceName = utils.serviceName(this.nameNewFile);
-    this.fileName = utils.fileName(this.serviceName);
+    this.fileName = utils.fileName(options);
   },
 
   writing: function () {
