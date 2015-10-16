@@ -9,7 +9,7 @@
     "no-console": 0,
 
     // strict
-    "strict": [2, "global"],
+    "strict": [2, "function"],
 
     // formatting, spaces, operators
     "indent": [2, 2, {"SwitchCase": 1}],

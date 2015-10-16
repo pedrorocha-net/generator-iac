@@ -15,7 +15,7 @@ module.exports = yeoman.generators.NamedBase.extend({
 
   writing: function () {
     // create constant with snake-case file name
-    var folder = 'app/common/';
+    var folder = 'app/constants/';
     this.template('_constant.js', folder + this.fileName + '-constant.js');
   }
 });
