@@ -15,15 +15,15 @@ module.exports = yeoman.generators.NamedBase.extend({
 
     this.directiveName = this.nameNewFile;
     this.directiveTagName = utils.directiveTagName(this.directiveName);
-    this.fileName = utils.fileName(this.directiveName);
+    this.fileName = this.directiveName;
   },
 
   writing: function () {
     // create directive with snake-case file name
     var folder = 'app/' + this.currentFolder + '/';
-    this.template('_directive.js', folder + this.fileName + '-directive.js');
+    this.template('_directive.js', folder + this.fileName + '.directive.js');
     // create karma test file
     var testFolder = 'test/karma/' + this.currentFolder + '/';
-    this.template('_directive.spec.js', testFolder + this.fileName + '-directive.spec.js');
+    this.template('_directive.spec.js', testFolder + this.fileName + '.directive.spec.js');
   }
 });

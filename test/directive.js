@@ -14,7 +14,7 @@ describe('iac:directive', function () {
     });
 
     it('file, content', function () {
-      var filePath = 'app/someFeature/some-name-directive.js';
+      var filePath = 'app/someFeature/someName.directive.js';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
         [filePath, 'directive(\'someName\','],
@@ -23,7 +23,7 @@ describe('iac:directive', function () {
     });
 
     it('spec file, describe signature, critical content', function () {
-      var specPath = 'test/karma/someFeature/some-name-directive.spec.js';
+      var specPath = 'test/karma/someFeature/someName.directive.spec.js';
       assert.fileContent([
         [specPath, 'module: main, directive: someName'],
         [specPath, '<some-name></some-name>'],

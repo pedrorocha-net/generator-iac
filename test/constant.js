@@ -14,7 +14,7 @@ describe('iac:constant', function () {
     });
 
     it('constant file contents', function () {
-      var filePath = 'app/constants/some-constant.js';
+      var filePath = 'app/constants/some.constant.js';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
         [filePath, 'constant(\'some\','],
@@ -31,7 +31,7 @@ describe('iac:constant', function () {
     });
 
     it('constant file contents', function () {
-      var filePath = 'app/constants/some-thing-constant.js';
+      var filePath = 'app/constants/someThing.constant.js';
       assert.fileContent([
         [filePath, 'angular.module(\'myModule\')'],
         [filePath, 'constant(\'someThing\','],
@@ -49,7 +49,7 @@ describe('iac:constant', function () {
     });
 
     it('constant file contents', function () {
-      var filePath = 'app/constants/my-constant-constant.js';
+      var filePath = 'app/constants/myConstant.constant.js';
       assert.fileContent(filePath, 'ENV: {');
     });
   });

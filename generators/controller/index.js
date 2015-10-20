@@ -17,14 +17,14 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.log('You called the iac:controller subgenerator.');
 
     this.controllerName = utils.controllerName(this.nameNewFile);
-    this.fileName = utils.fileName(this.nameNewFile);
+    this.fileName = this.nameNewFile;
 
   },
 
   writing: function () {
     // create controller with snake-case file name
     var folder = 'app/' + this.currentFolder + '/';
-    this.template('_controller.js', folder + this.fileName + '-ctrl.js');
+    this.template('_controller.js', folder + this.fileName + '.ctrl.js');
     // create karma test file
     var testFolder = 'test/karma/' + this.moduleFolder + '/';
     this.template('_controller.spec.js', testFolder + this.fileName + '.spec.js');

@@ -34,11 +34,11 @@ describe('iac:module', function () {
       var configPath = modulePath + '/constants/';
       var configName = '';
       if (options && options.mainModule) {
-        configPath += 'config-constant.js';
+        configPath += 'config.constant.js';
         configName = utils.configName();
       }
       else {
-        configPath += moduleFolder + '-config-constant.js';
+        configPath += moduleFolder + '-config.constant.js';
         configName = utils.configName(moduleName);
       }
 

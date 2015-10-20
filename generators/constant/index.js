@@ -10,12 +10,12 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.log('You called the iac:constant subgenerator.');
 
     this.constantName = this.name;
-    this.fileName = utils.fileName(this.constantName);
+    this.fileName = this.constantName;
   },
 
   writing: function () {
     // create constant with snake-case file name
     var folder = 'app/constants/';
-    this.template('_constant.js', folder + this.fileName + '-constant.js');
+    this.template('_constant.js', folder + this.fileName + '.constant.js');
   }
 });

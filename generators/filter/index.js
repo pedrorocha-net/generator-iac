@@ -14,15 +14,15 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.log('You called the iac:filter subgenerator.');
 
     this.filterName = this.nameNewFile;
-    this.fileName = utils.fileName(this.filterName);
+    this.fileName = this.filterName;
   },
 
   writing: function () {
     // create filter with snake-case file name
     var folder = 'app/' + this.currentFolder + '/';
-    this.template('_filter.js', folder + this.fileName + '-filter.js');
+    this.template('_filter.js', folder + this.fileName + '.filter.js');
     // create karma test file
     var testFolder = 'test/karma/' + this.currentFolder + '/';
-    this.template('_filter.spec.js', testFolder + this.fileName + '-filter.spec.js');
+    this.template('_filter.spec.js', testFolder + this.fileName + '.filter.spec.js');
   }
 });

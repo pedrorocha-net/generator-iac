@@ -15,7 +15,7 @@ describe('iac:controller', function () {
     });
 
     it('file, module name, controller signature', function () {
-      var filePath = 'app/someFeature/some-name-ctrl.js';
+      var filePath = 'app/someFeature/someName.ctrl.js';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
         [filePath, 'controller(\'SomeNameCtrl\', SomeNameCtrl)']
@@ -23,7 +23,7 @@ describe('iac:controller', function () {
     });
 
     it('spec file, default signature, default content', function () {
-      var filePath = 'test/karma/someFeature/some-name.spec.js';
+      var filePath = 'test/karma/someFeature/someName.spec.js';
       assert.fileContent([
         [filePath, 'describe(\'module: main, controller: SomeNameCtrl']
         // [filePath, 'it(\'should do something\', function () {']
@@ -39,7 +39,7 @@ describe('iac:controller', function () {
     });
 
     it('file, module name', function () {
-      var filePath = 'app/myFeature/some-ctrl.js';
+      var filePath = 'app/myFeature/some.ctrl.js';
       assert.fileContent([
         [filePath, 'angular.module(\'main\')']
       ]);
@@ -62,7 +62,7 @@ describe('iac:controller', function () {
     });
 
     it('file, controller signature, debug logic & placeholders', function () {
-      var filePath = 'app/myFeature/some-ctrl.js';
+      var filePath = 'app/myFeature/some.ctrl.js';
       assert.fileContent([
         [filePath, '$log, Main, Config'],
         [filePath, 'this.someData = Main.'],

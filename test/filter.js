@@ -14,7 +14,7 @@ describe('iac:filter', function () {
     });
 
     it('file, content', function () {
-      var filePath = 'app/someFeature/some-name-filter.js';
+      var filePath = 'app/someFeature/someName.filter.js';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
         [filePath, 'filter(\'someName\','],
@@ -23,7 +23,7 @@ describe('iac:filter', function () {
     });
 
     it('spec file, describe signature, critical content', function () {
-      var specPath = 'test/karma/someFeature/some-name-filter.spec.js';
+      var specPath = 'test/karma/someFeature/someName.filter.spec.js';
       assert.fileContent([
         [specPath, 'module: main, filter: someName'],
         [specPath, '"someName filter:"'],

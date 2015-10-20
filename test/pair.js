@@ -17,7 +17,7 @@ describe('iac:generators/pair', function () {
 
   it('creates files', function () {
     assert.file([
-      'app/myFeature/name-ctrl.js',
+      'app/myFeature/name.ctrl.js',
       'test/karma/myFeature/name.spec.js',
       'app/templates/name.html'
     ]);

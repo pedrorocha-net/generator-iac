@@ -15,15 +15,15 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.log('You called the iac:service subgenerator.');
 
     this.serviceName = utils.serviceName(this.nameNewFile);
-    this.fileName = utils.fileName(options);
+    this.fileName = options;
   },
 
   writing: function () {
     // create service with snake-case file name
     var folder = 'app/' + this.moduleFolder + '/';
-    this.template('_service.js', folder + this.fileName + '-service.js');
+    this.template('_service.js', folder + this.fileName + '.service.js');
     // create karma test file
     var testFolder = 'test/karma/' + this.moduleFolder + '/';
-    this.template('_service.spec.js', testFolder + this.fileName + '-service.spec.js');
+    this.template('_service.spec.js', testFolder + this.fileName + '.service.spec.js');
   }
 });

@@ -15,7 +15,7 @@ describe('iac:service', function () {
     });
 
     it('file, module name, service signature', function () {
-      var filePath = 'app/myFeature/some-name-service.js';
+      var filePath = 'app/myFeature/someName.service.js';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
         [filePath, 'factory(\'SomeNameFactory\', SomeNameFactory)']
@@ -23,7 +23,7 @@ describe('iac:service', function () {
     });
 
     it('spec file, default signature, default content', function () {
-      var filePath = 'test/karma/myFeature/some-name-service.spec.js';
+      var filePath = 'test/karma/myFeature/someName.service.spec.js';
       assert.fileContent([
         [filePath, 'describe(\'module: main, service: SomeNameFactory'],
         [filePath, 'it(\'should do something']
@@ -41,7 +41,7 @@ describe('iac:service', function () {
     });
 
     it('file, service signature, debug logic', function () {
-      var filePath = 'app/myFeature/some-name-service.js';
+      var filePath = 'app/myFeature/someName.service.js';
       assert.fileContent([
         [filePath, 'factory(\'SomeNameFactory\', SomeNameFactory)'],
         [filePath, 'this.someData = {'],
@@ -50,7 +50,7 @@ describe('iac:service', function () {
     });
 
     it('spec file, debug content', function () {
-      var filePath = 'test/karma/myFeature/some-name-service.spec.js';
+      var filePath = 'test/karma/myFeature/someName.service.spec.js';
       assert.fileContent([
         [filePath, 'describe(\'.changeBriefly()']
       ]);
