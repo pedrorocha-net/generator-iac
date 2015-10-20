@@ -10,14 +10,15 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.nameNewFile = options;
 
     this.moduleName = utils.checkModule('main');
-    this.serviceName = utils.serviceName(this.nameNewFile);
-    this.configName = utils.configName(this.nameNewFile);
-    this.moduleFolder = utils.moduleFolder(this.currentFolder);
+    this.serviceName = utils.serviceName(this.moduleName);
+    this.configName = utils.configName(this.moduleName);
+    this.moduleFolder = this.currentFolder;
 
     this.log('You called the iac:controller subgenerator.');
 
     this.controllerName = utils.controllerName(this.nameNewFile);
     this.fileName = utils.fileName(this.nameNewFile);
+
   },
 
   writing: function () {

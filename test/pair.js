@@ -4,22 +4,22 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
-describe('M-ionic:generators/pair', function () {
+describe('iac:generators/pair', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/pair'))
       .withGenerators([ // configure path to subgenerators
         path.join(__dirname, '../generators/controller'),
         path.join(__dirname, '../generators/template'),
       ])
-      .withArguments('name')
+      .withArguments(['myFeature', 'name'])
       .on('end', done);
   });
 
   it('creates files', function () {
     assert.file([
-      'app/main/controllers/name-ctrl.js',
-      'test/karma/main/name-ctrl.spec.js',
-      'app/main/templates/name.html'
+      'app/myFeature/name-ctrl.js',
+      'test/karma/myFeature/name.spec.js',
+      'app/templates/name.html'
     ]);
   });
 });

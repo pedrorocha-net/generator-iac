@@ -5,8 +5,8 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var config = require(path.join(__dirname, '../utils/config.js'));
 
-describe('m-ionic:constant', function () {
-  describe('m-ionic:constant some', function () {
+describe('iac:constant', function () {
+  describe('iac:constant some', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/constant'))
         .withArguments('some')
@@ -14,7 +14,7 @@ describe('m-ionic:constant', function () {
     });
 
     it('constant file contents', function () {
-      var filePath = 'app/' + config.DEFAULT_MODULE + '/constants/some-const.js';
+      var filePath = 'app/constants/some-constant.js';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
         [filePath, 'constant(\'some\','],
@@ -23,7 +23,7 @@ describe('m-ionic:constant', function () {
     });
   });
 
-  describe('m-ionic:constant someThing myModule', function () {
+  describe('iac:constant someThing myModule', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/constant'))
         .withArguments('someThing myModule')
@@ -31,7 +31,7 @@ describe('m-ionic:constant', function () {
     });
 
     it('constant file contents', function () {
-      var filePath = 'app/my-module/constants/some-thing-const.js';
+      var filePath = 'app/constants/some-thing-constant.js';
       assert.fileContent([
         [filePath, 'angular.module(\'myModule\')'],
         [filePath, 'constant(\'someThing\','],
@@ -40,7 +40,7 @@ describe('m-ionic:constant', function () {
     });
   });
 
-  describe('m-ionic:constant myConstant --template=config', function () {
+  describe('iac:constant myConstant --template=config', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/constant'))
         .withArguments('myConstant')
@@ -49,7 +49,7 @@ describe('m-ionic:constant', function () {
     });
 
     it('constant file contents', function () {
-      var filePath = 'app/main/constants/my-constant-const.js';
+      var filePath = 'app/constants/my-constant-constant.js';
       assert.fileContent(filePath, 'ENV: {');
     });
   });

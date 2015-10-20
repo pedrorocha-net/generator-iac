@@ -24,5 +24,5 @@ module.exports = {
       return item.toLowerCase();
     });
     return words.join('-');
-  },
+  }
 };

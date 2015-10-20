@@ -5,64 +5,64 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var config = require(path.join(__dirname, '../utils/config.js'));
 
-describe('m-ionic:controller', function () {
+describe('iac:controller', function () {
 
   describe('some', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/controller'))
-        .withArguments('some')
+        .withArguments(['someFeature', 'someName'])
         .on('end', done);
     });
 
     it('file, module name, controller signature', function () {
-      var filePath = 'app/' + config.DEFAULT_MODULE + '/controllers/some-ctrl.js';
+      var filePath = 'app/someFeature/some-name-ctrl.js';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
-        [filePath, 'controller(\'SomeCtrl\', function ($log) {']
+        [filePath, 'controller(\'SomeNameCtrl\', SomeNameCtrl)']
       ]);
     });
 
     it('spec file, default signature, default content', function () {
-      var filePath = 'test/karma/' + config.DEFAULT_MODULE + '/some-ctrl.spec.js';
+      var filePath = 'test/karma/someFeature/some-name.spec.js';
       assert.fileContent([
-        [filePath, 'describe(\'module: main, controller: SomeCtrl'],
-        [filePath, 'it(\'should do something\', function () {']
+        [filePath, 'describe(\'module: main, controller: SomeNameCtrl']
+        // [filePath, 'it(\'should do something\', function () {']
       ]);
     });
   });
 
-  describe('someCtrl myModule', function () {
+  describe('myFeature someCtrl', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/controller'))
-        .withArguments('someCtrl myModule')
+        .withArguments(['myFeature', 'some'])
         .on('end', done);
     });
 
     it('file, module name', function () {
-      var filePath = 'app/my-module/controllers/some-ctrl.js';
+      var filePath = 'app/myFeature/some-ctrl.js';
       assert.fileContent([
-        [filePath, 'angular.module(\'myModule\')']
+        [filePath, 'angular.module(\'main\')']
       ]);
     });
 
     it('spec file, default signature', function () {
-      var filePath = 'test/karma/my-module/some-ctrl.spec.js';
+      var filePath = 'test/karma/myFeature/some.spec.js';
       assert.fileContent([
-        [filePath, 'describe(\'module: myModule, controller: SomeCtrl']
+        [filePath, 'describe(\'module: main, controller: SomeCtrl']
       ]);
     });
   });
 
-  describe('someCtrl --template=debug', function () {
+  describe('myFeature someCtrl --template=debug', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/controller'))
-        .withArguments('someCtrl')
+        .withArguments(['myFeature', 'some'])
         .withOptions({ template: 'debug' })
         .on('end', done);
     });
 
     it('file, controller signature, debug logic & placeholders', function () {
-      var filePath = 'app/main/controllers/some-ctrl.js';
+      var filePath = 'app/myFeature/some-ctrl.js';
       assert.fileContent([
         [filePath, '$log, Main, Config'],
         [filePath, 'this.someData = Main.'],
@@ -73,37 +73,11 @@ describe('m-ionic:controller', function () {
     });
 
     it('spec file, debug content', function () {
-      var filePath = 'test/karma/' + config.DEFAULT_MODULE + '/some-ctrl.spec.js';
+      var filePath = 'test/karma/myFeature/some.spec.js';
       assert.fileContent([
         [filePath, 'describe(\'.grade()']
       ]);
     });
   });
 
-  describe('someCtrl myModule --template=debug', function () {
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/controller'))
-        .withArguments('someCtrl myModule')
-        .withOptions({ template: 'debug' })
-        .on('end', done);
-    });
-
-    it('file, controller signature, debug logic & placeholders', function () {
-      var filePath = 'app/my-module/controllers/some-ctrl.js';
-      assert.fileContent([
-        [filePath, '$log, MyModule, MyModuleConfig'],
-        [filePath, 'this.someData = MyModule.'],
-        [filePath, 'this.ENV = MyModuleConfig.ENV'],
-        [filePath, 'this.BUILD = MyModuleConfig.BUILD'],
-        [filePath, 'this.grade = ']
-      ]);
-    });
-
-    it('spec file, debug content', function () {
-      var filePath = 'test/karma/my-module/some-ctrl.spec.js';
-      assert.fileContent([
-        [filePath, 'describe(\'.grade()']
-      ]);
-    });
-  });
 });

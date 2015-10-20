@@ -9,9 +9,9 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.nameNewFile = option;
 
     this.moduleName =  utils.checkModule('main');
-    this.moduleFolder = utils.moduleFolder(this.moduleName);
+    this.moduleFolder = this.currentFolder;
 
-    this.log('You called the m-ionic:directive subgenerator.');
+    this.log('You called the iac:directive subgenerator.');
 
     this.directiveName = this.nameNewFile;
     this.directiveTagName = utils.directiveTagName(this.directiveName);

@@ -68,21 +68,16 @@ describe('m', function () {
 
     it('creates module named main', function () {
       assert.file([
-        'app/main',
-        'app/main/main.js',
-        'app/main/constants/env-dev.json',
+        'app/main.js',
+        'app/constants/env-dev.json',
       ]);
     });
 
     it('creates module of type main', function () {
       // not just any module
       assert.file([
-        'app/main/constants/env-dev.json',
+        'app/constants/env-dev.json',
       ]);
-    });
-
-    it('version injected in README.md', function () {
-      assert.fileContent('README.md', '# Generator-M-Ionic v' + pkg.version);
     });
 
     it('has proper bower.json content', function () {
@@ -140,7 +135,7 @@ describe('m', function () {
     });
 
     it('includes ionic css', function () {
-      assert.noFileContent('app/main/styles/main.scss', '$light');
+      assert.noFileContent('app/assets/styles/main.scss', '$light');
       assert.fileContent('gulp/injecting.js', '.pipe(wiredep.stream())');
       assert.fileContent('gulp/injecting.js', 'var DEST = \'www/fonts\';');
     });
@@ -164,9 +159,9 @@ describe('m', function () {
     });
 
     it('includes ionicSass', function () {
-      assert.fileContent('app/main/styles/main.scss', '$light');
+      assert.fileContent('app/assets/styles/main.scss', '$light');
       assert.fileContent('gulp/injecting.js', '.pipe(wiredep.stream({exclude: [\'bower_components/ionic/release/css\']}))');
-      assert.fileContent('gulp/injecting.js', 'var DEST = \'app/main/assets/fonts\'');
+      assert.fileContent('gulp/injecting.js', 'var DEST = \'app/assets/fonts\'');
     });
   });
 

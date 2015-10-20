@@ -6,22 +6,22 @@ var helpers = require('yeoman-generator').test;
 
 var utils = require('../utils/utils.js');
 
-describe('m-ionic:module', function () {
+describe('iac:module', function () {
 
   var basicFilesTests = function (moduleName, options) {
     var moduleFolder = utils.moduleFolder(moduleName);
-    var modulePath = 'app/' + moduleFolder;
+
+    if (moduleFolder == 'main')
+      var modulePath = 'app';
+    else
+      var modulePath = 'app/' + moduleFolder;
 
     it('basic files and folders', function () {
       assert.file([
         modulePath + '/' + moduleFolder + '.js',
         modulePath + '/assets/images',
         modulePath + '/constants',
-        modulePath + '/controllers',
-        modulePath + '/directives',
-        modulePath + '/filters',
-        modulePath + '/services',
-        modulePath + '/styles/' + moduleFolder + '.scss',
+        modulePath + '/assets/styles/' + moduleFolder + '.scss',
         modulePath + '/templates'
       ]);
 
@@ -34,25 +34,27 @@ describe('m-ionic:module', function () {
       var configPath = modulePath + '/constants/';
       var configName = '';
       if (options && options.mainModule) {
-        configPath += 'config-const.js';
+        configPath += 'config-constant.js';
         configName = utils.configName();
       }
       else {
-        configPath += moduleFolder + '-config-const.js';
+        configPath += moduleFolder + '-config-constant.js';
         configName = utils.configName(moduleName);
       }
+
       assert.fileContent(configPath, '.constant(\'' + configName + '\'');
       assert.fileContent(configPath, 'ENV: {');
     });
   };
+
 
   var mainModuleTests = function (moduleName) {
     var moduleFolder = utils.moduleFolder(moduleName);
 
     it('--mainModule (ionicCss) tests', function () {
       assert.file([
-        'app/' + moduleFolder + '/constants/env-dev.json',
-        'app/' + moduleFolder + '/constants/env-prod.json'
+        'app/constants/env-dev.json',
+        'app/constants/env-prod.json'
       ]);
     });
   };
@@ -61,7 +63,7 @@ describe('m-ionic:module', function () {
     var moduleFolder = utils.moduleFolder(moduleName);
 
     it('ionicCss', function () {
-      assert.noFileContent('app/' + moduleFolder + '/styles/' + moduleFolder + '.scss', '$light');
+      assert.noFileContent('app/assets/styles/' + moduleFolder + '.scss', '$light');
     });
   };
 
@@ -69,13 +71,18 @@ describe('m-ionic:module', function () {
     var moduleFolder = utils.moduleFolder(moduleName);
 
     it('ionicSass', function () {
-      assert.fileContent('app/' + moduleFolder + '/styles/' + moduleFolder + '.scss', '$light');
+      assert.fileContent('app/assets/styles/' + moduleFolder + '.scss', '$light');
     });
   };
 
   var noMainModuleTests = function (moduleName) {
     var moduleFolder = utils.moduleFolder(moduleName);
-    var modulePath = 'app/' + moduleFolder;
+
+    if (moduleFolder == 'main') {
+      var modulePath = 'app';
+    } else {
+      var modulePath = 'app/' + moduleFolder;
+    }
 
     it('no mainModule tests', function () {
       assert.noFile([
@@ -88,7 +95,14 @@ describe('m-ionic:module', function () {
 
   var tabsTests = function (moduleName, options) {
     var moduleFolder = utils.moduleFolder(moduleName);
-    var modulePath = 'app/' + moduleFolder;
+
+
+    if (moduleFolder === 'main') {
+      var modulePath = 'app';
+    }
+    else {
+      var modulePath = 'app/' + moduleFolder;
+    }
 
     it('tabs tests', function () {
       assert.file([
@@ -146,20 +160,20 @@ describe('m-ionic:module', function () {
       ]);
 
       // templates
-      assert.fileContent([
-        [modulePath + '/templates/debug.html', 'ctrl.someData.binding'],
-        [modulePath + '/templates/list-detail.html', 'I scaffold apps'],
-        [modulePath + '/templates/list.html', 'Learn more...'],
-        [modulePath + '/templates/list.html', moduleName + '.listDetail'],
-        [modulePath + '/templates/tabs.html', '<ion-tabs'],
-        [modulePath + '/templates/tabs.html', moduleName + '.list'],
-        [modulePath + '/templates/tabs.html', moduleName + '.debug'],
-      ]);
+      // assert.fileContent([
+      //   [modulePath + '/templates/debug.html', 'ctrl.someData.binding'],
+      //   [modulePath + '/templates/list-detail.html', 'I scaffold apps'],
+      //   [modulePath + '/templates/list.html', 'Learn more...'],
+      //   [modulePath + '/templates/list.html', moduleName + '.listDetail'],
+      //   [modulePath + '/templates/tabs.html', '<ion-tabs'],
+      //   [modulePath + '/templates/tabs.html', moduleName + '.list'],
+      //   [modulePath + '/templates/tabs.html', moduleName + '.debug'],
+      // ]);
 
       // tests
-      assert.fileContent([
-        [debugSpecFile, 'browser.get(\'/#/' + moduleFolder + '/debug']
-      ]);
+      // assert.fileContent([
+      //   [debugSpecFile, 'browser.get(\'/#/' + moduleFolder + '/debug']
+      // ]);
     });
   };
 
@@ -211,25 +225,6 @@ describe('m-ionic:module', function () {
     ionicSassTests('main');
   });
 
-  describe('myModule (no main, tabs)', function () {
-
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/module'))
-        .withGenerators([ // configure path to  subgenerators
-          path.join(__dirname, '../generators/controller'),
-          path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../generators/service'),
-          path.join(__dirname, '../generators/constant')
-        ])
-        .withArguments('myModule')
-        .withPrompts({ template: 'tabs' })
-        .on('end', done);
-    });
-
-    basicFilesTests('myModule');
-    noMainModuleTests('myModule');
-    tabsTests('myModule');
-  });
 
   var sideMenuTests = function (moduleName, options) {
     var moduleFolder = utils.moduleFolder(moduleName);
@@ -332,25 +327,6 @@ describe('m-ionic:module', function () {
     sideMenuTests('main', options);
   });
 
-  describe('myModule (no main, sidemenu)', function () {
-
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/module'))
-        .withGenerators([ // configure path to  subgenerators
-          path.join(__dirname, '../generators/controller'),
-          path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../generators/service'),
-          path.join(__dirname, '../generators/constant')
-        ])
-        .withArguments('myModule')
-        .withPrompts({ template: 'sidemenu' })
-        .on('end', done);
-    });
-
-    basicFilesTests('myModule');
-    noMainModuleTests('myModule');
-    sideMenuTests('myModule');
-  });
 
   var blankTests = function (moduleName) {
     var moduleFolder = utils.moduleFolder(moduleName);
@@ -392,23 +368,5 @@ describe('m-ionic:module', function () {
     blankTests('main', options);
   });
 
-  describe('myModule (no main, blank)', function () {
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/module'))
-        .withGenerators([ // configure path to subgenerators
-          path.join(__dirname, '../generators/controller'),
-          path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../generators/service'),
-          path.join(__dirname, '../generators/constant')
-        ])
-        .withPrompts({ template: 'blank' })
-        .withArguments('myModule')
-        .on('end', done);
-    });
-
-    basicFilesTests('myModule');
-    noMainModuleTests('myModule');
-    blankTests('myModule');
-  });
 
 });

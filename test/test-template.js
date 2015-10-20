@@ -5,7 +5,7 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var config = require(path.join(__dirname, '../utils/config.js'));
 
-describe('m-ionic:template', function () {
+describe('iac:template', function () {
 
   describe('some-template', function () {
     before(function (done) {
@@ -15,7 +15,7 @@ describe('m-ionic:template', function () {
     });
 
     it('file path, default content, module title', function () {
-      var filePath = 'app/' + config.DEFAULT_MODULE + '/templates/some-template.html';
+      var filePath = 'app/templates/some-template.html';
       assert.fileContent([
         [filePath, 'This is your some-template template!'],
         [filePath, '<ion-view view-title="' + config.DEFAULT_MODULE + ' module">'],
@@ -23,21 +23,7 @@ describe('m-ionic:template', function () {
     });
   });
 
-  describe('someTemplate myModule', function () {
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/template'))
-        .withArguments('someTemplate myModule')
-        .on('end', done);
-    });
 
-    it('file path, default content, module title', function () {
-      var filePath = 'app/my-module/templates/some-template.html';
-      assert.fileContent([
-        [filePath, 'This is your someTemplate template!'],
-        [filePath, '<ion-view view-title="myModule module">'],
-      ]);
-    });
-  });
 
   describe('debug', function () {
     before(function (done) {
@@ -48,7 +34,7 @@ describe('m-ionic:template', function () {
     });
 
     it('file path, debug content, module title', function () {
-      var filePath = 'app/main/templates/debug.html';
+      var filePath = 'app/templates/debug.html';
       assert.fileContent([
         [filePath, 'Password Test:'],
         [filePath, '<ion-view view-title="main debug">'],
@@ -65,7 +51,7 @@ describe('m-ionic:template', function () {
     });
 
     it('file path, list-detail content', function () {
-      var filePath = 'app/main/templates/list-detail.html';
+      var filePath = 'app/templates/list-detail.html';
       assert.fileContent([
         [filePath, '<ion-view view-title="Mr. Yo">'],
       ]);
@@ -81,27 +67,10 @@ describe('m-ionic:template', function () {
     });
 
     it('file path, list content, link to list detail', function () {
-      var filePath = 'app/main/templates/list.html';
+      var filePath = 'app/templates/list.html';
       assert.fileContent([
         [filePath, '<ion-view view-title="List">'],
         [filePath, 'ui-sref="main.listDetail"']
-      ]);
-    });
-  });
-
-  describe('list myModule', function () {
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/template'))
-        .withArguments('list myModule')
-        .withOptions({ template: 'list' })
-        .on('end', done);
-    });
-
-    it('file path, list content, link to list detail', function () {
-      var filePath = 'app/my-module/templates/list.html';
-      assert.fileContent([
-        [filePath, '<ion-view view-title="List">'],
-        [filePath, 'ui-sref="myModule.listDetail"']
       ]);
     });
   });
@@ -115,7 +84,7 @@ describe('m-ionic:template', function () {
     });
 
     it('file path, menu content, link to list & debug', function () {
-      var filePath = 'app/main/templates/menu.html';
+      var filePath = 'app/templates/menu.html';
       assert.fileContent([
         [filePath, '<ion-side-menu-content>'],
         [filePath, 'ui-sref="main.list"'],
@@ -124,23 +93,6 @@ describe('m-ionic:template', function () {
     });
   });
 
-  describe('menu myModule', function () {
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/template'))
-        .withArguments('menu myModule')
-        .withOptions({ template: 'menu' })
-        .on('end', done);
-    });
-
-    it('file path, menu content, link to list & debug', function () {
-      var filePath = 'app/my-module/templates/menu.html';
-      assert.fileContent([
-        [filePath, '<ion-side-menu-content>'],
-        [filePath, 'ui-sref="myModule.list"'],
-        [filePath, 'ui-sref="myModule.debug"'],
-      ]);
-    });
-  });
 
   describe('tabs', function () {
     before(function (done) {
@@ -151,7 +103,7 @@ describe('m-ionic:template', function () {
     });
 
     it('file path, tabs content, module name', function () {
-      var filePath = 'app/main/templates/tabs.html';
+      var filePath = 'app/templates/tabs.html';
       assert.fileContent([
         [filePath, '<ion-tabs'],
         [filePath, 'ui-sref="main.list"'],
@@ -160,21 +112,5 @@ describe('m-ionic:template', function () {
     });
   });
 
-  describe('tabs myModule', function () {
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/template'))
-        .withArguments('tabs myModule')
-        .withOptions({ template: 'tabs' })
-        .on('end', done);
-    });
-
-    it('file path, tabs content, module name', function () {
-      var filePath = 'app/my-module/templates/tabs.html';
-      assert.fileContent([
-        [filePath, '<ion-tabs'],
-        [filePath, 'ui-sref="myModule.list"'],
-        [filePath, 'ui-sref="myModule.debug"'],
-      ]);
-    });
-  });
 });
+

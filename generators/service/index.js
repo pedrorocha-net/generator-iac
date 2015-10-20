@@ -10,7 +10,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.nameNewFile = options + 'Factory';
 
     this.moduleName =  utils.checkModule('main');
-    this.moduleFolder = utils.moduleFolder(this.currentFolder);
+    this.moduleFolder = this.currentFolder;
 
     this.log('You called the iac:service subgenerator.');
 
