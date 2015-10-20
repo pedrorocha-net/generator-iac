@@ -77,7 +77,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.template('_module.scss', modulePath + '/assets/styles/' + this.moduleFolder + '.scss');
     // create config constant
     this.composeWith('iac:constant', {
-      arguments: utils.configName(this.moduleName) + ' ' + this.moduleName,
+      arguments: utils.configName(this.moduleName),
       options: {
         template: 'config'
       }
@@ -98,7 +98,7 @@ module.exports = yeoman.generators.NamedBase.extend({
 
       // debug
       this.composeWith('iac:controller', {
-        arguments: this.debugCtrlName + ' ' + this.moduleName,
+        arguments: this.moduleName + ' ' + this.debugCtrlName,
         options: { template: 'debug' }
       });
       this.composeWith('iac:template', {
@@ -106,17 +106,17 @@ module.exports = yeoman.generators.NamedBase.extend({
         options: { template: 'debug' }
       });
       this.composeWith('iac:service', {
-        arguments: this.name + ' ' + this.moduleName,
+        arguments: this.moduleName  + ' ' + this.name,
         options: {  template: 'debug' }
       });
 
       // other templates
       this.composeWith('iac:template', {
-        arguments: 'list ' + this.moduleName,
+        arguments: 'list ',
         options: { template: 'list' }
       });
       this.composeWith('iac:template', {
-        arguments: 'list-detail ' + this.moduleName,
+        arguments: 'list-detail ',
         options: { template: 'list-detail' }
       });
     }
@@ -124,10 +124,10 @@ module.exports = yeoman.generators.NamedBase.extend({
     if (this.answers.template === 'sidemenu') {
       // menu
       this.composeWith('iac:controller', {
-        arguments: this.menuCtrlName + ' ' + this.moduleName,
+        arguments: this.moduleName + ' ' + this.menuCtrlName,
       });
       this.composeWith('iac:template', {
-        arguments: 'menu ' + this.moduleName,
+        arguments: 'menu ',
         options: { template: 'menu' }
       });
     }
@@ -136,7 +136,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     if (this.answers.template === 'tabs') {
       // tabs
       this.composeWith('iac:template', {
-        arguments: 'tabs ' + this.moduleName,
+        arguments: 'tabs',
         options: { template: 'tabs' }
       });
     }

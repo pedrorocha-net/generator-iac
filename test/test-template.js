@@ -23,8 +23,6 @@ describe('iac:template', function () {
     });
   });
 
-
-
   describe('debug', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/template'))

@@ -26,14 +26,14 @@
       });
   <%} else if (answers.template === 'sidemenu') { -%>
         abstract: true,
-        templateUrl: '<%= moduleFolder %>/templates/menu.html',
+        templateUrl: 'templates/menu.html',
         controller: '<%= menuCtrlName %> as menu'
       })
         .state('<%= moduleName %>.list', {
           url: '/list',
           views: {
             'pageContent': {
-              templateUrl: '<%= moduleFolder %>/templates/list.html',
+              templateUrl: 'templates/list.html',
               // controller: '<someCtrl> as ctrl'
             }
           }
@@ -42,7 +42,7 @@
           url: '/list/detail',
           views: {
             'pageContent': {
-              templateUrl: '<%= moduleFolder %>/templates/list-detail.html',
+              templateUrl: 'templates/list-detail.html',
               // controller: '<someCtrl> as ctrl'
             }
           }
@@ -51,20 +51,20 @@
           url: '/debug',
           views: {
             'pageContent': {
-              templateUrl: '<%= moduleFolder %>/templates/debug.html',
+              templateUrl: 'templates/debug.html',
               controller: '<%= debugCtrlName %> as ctrl'
             }
           }
         });
   <%} else if (answers.template === 'tabs') { -%>
         abstract: true,
-        templateUrl: '<%= moduleFolder %>/templates/tabs.html'
+        templateUrl: 'templates/tabs.html'
       })
         .state('<%= moduleName %>.list', {
           url: '/list',
           views: {
             'tab-list': {
-              templateUrl: '<%= moduleFolder %>/templates/list.html',
+              templateUrl: 'templates/list.html',
               // controller: 'SomeCtrl as ctrl'
             }
           }
@@ -73,7 +73,7 @@
           url: '/list/detail',
           views: {
             'tab-list': {
-              templateUrl: '<%= moduleFolder %>/templates/list-detail.html',
+              templateUrl: 'templates/list-detail.html',
               // controller: 'SomeCtrl as ctrl'
             }
           }
@@ -82,7 +82,7 @@
           url: '/debug',
           views: {
             'tab-debug': {
-              templateUrl: '<%= moduleFolder %>/templates/debug.html',
+              templateUrl: 'templates/debug.html',
               controller: '<%= debugCtrlName %> as ctrl'
             }
           }

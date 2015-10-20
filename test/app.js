@@ -3,7 +3,6 @@
 var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
-var pkg = require('../package.json');
 
 // local modules
 var sampleAnswers = require('../generators/app/sources/sample-answers.js');

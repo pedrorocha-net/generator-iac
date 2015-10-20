@@ -10,11 +10,14 @@ describe('iac:module', function () {
 
   var basicFilesTests = function (moduleName, options) {
     var moduleFolder = utils.moduleFolder(moduleName);
+    var modulePath = '';
 
-    if (moduleFolder == 'main')
-      var modulePath = 'app';
-    else
-      var modulePath = 'app/' + moduleFolder;
+    if (moduleFolder === 'main') {
+      modulePath = 'app';
+    }
+    else {
+      modulePath = 'app/' + moduleFolder;
+    }
 
     it('basic files and folders', function () {
       assert.file([
@@ -48,8 +51,7 @@ describe('iac:module', function () {
   };
 
 
-  var mainModuleTests = function (moduleName) {
-    var moduleFolder = utils.moduleFolder(moduleName);
+  var mainModuleTests = function () {
 
     it('--mainModule (ionicCss) tests', function () {
       assert.file([
@@ -75,33 +77,15 @@ describe('iac:module', function () {
     });
   };
 
-  var noMainModuleTests = function (moduleName) {
-    var moduleFolder = utils.moduleFolder(moduleName);
-
-    if (moduleFolder == 'main') {
-      var modulePath = 'app';
-    } else {
-      var modulePath = 'app/' + moduleFolder;
-    }
-
-    it('no mainModule tests', function () {
-      assert.noFile([
-        modulePath + '/constants/env-dev.json',
-        modulePath + '/constants/env-prod.json'
-      ]);
-      assert.noFileContent(modulePath + '/styles/' + moduleFolder + '.scss', '$light');
-    });
-  };
-
   var tabsTests = function (moduleName, options) {
     var moduleFolder = utils.moduleFolder(moduleName);
-
+    var modulePath = '';
 
     if (moduleFolder === 'main') {
-      var modulePath = 'app';
+      modulePath = 'app';
     }
     else {
-      var modulePath = 'app/' + moduleFolder;
+      modulePath = 'app/' + moduleFolder;
     }
 
     it('tabs tests', function () {
@@ -110,7 +94,7 @@ describe('iac:module', function () {
       ]);
 
       var moduleFile = modulePath + '/' + moduleFolder + '.js';
-      var serviceFile = modulePath + '/services/' + moduleFolder + '-serv.js';
+      var serviceFile = modulePath + '/main/' + moduleFolder + '.service.js';
       var serviceName = utils.serviceName(moduleName);
       var debugCtrlFile, debugCtrlName;
       var debugSpecFile;
@@ -118,7 +102,7 @@ describe('iac:module', function () {
 
       // mainModule tests
       if (options && options.mainModule) {
-        debugCtrlFile = modulePath + '/controllers/debug-ctrl.js';
+        debugCtrlFile = modulePath + '/main/DebugCtrl.ctrl.js';
         debugCtrlName = utils.controllerName('Debug');
         debugSpecFile = 'test/protractor/main-debug.spec.js';
         configName = utils.configName();
@@ -126,54 +110,44 @@ describe('iac:module', function () {
         // module.js
         assert.fileContent(moduleFile, 'otherwise(\'/' + moduleFolder + '/list');
       }
-      // no mainModule test
-      else {
-        debugCtrlFile = modulePath + '/controllers/' + moduleFolder + '-debug-ctrl.js';
-        debugCtrlName = utils.controllerName(moduleName + 'Debug');
-        debugSpecFile = 'test/protractor/' + moduleFolder + '-debug.spec.js';
-        configName = utils.configName(moduleName);
-
-        // module.js
-        assert.noFileContent(moduleFile, 'otherwise(\'/');
-      }
 
       // in any case
       assert.fileContent([
         // module.js
         [moduleFile, 'abstract: true'],
-        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/tabs.html'],
+        [moduleFile, 'templateUrl: \'templates/tabs.html\''],
         [moduleFile, '.state(\'' + moduleName + '.list'],
-        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/list.html'],
+        [moduleFile, 'templateUrl: \'templates/list.html\''],
         [moduleFile, '.state(\'' + moduleName + '.listDetail'],
-        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/list-detail.html'],
+        [moduleFile, 'templateUrl: \'templates/list-detail.html\''],
         [moduleFile, '.state(\'' + moduleName + '.debug'],
-        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/debug.html'],
+        [moduleFile, 'templateUrl: \'templates/debug.html\''],
         [moduleFile, 'controller: \'' + debugCtrlName + ' as ctrl'],
 
-        // template files
+        // // template files
         [debugCtrlFile, 'controller(\'' + debugCtrlName],
         [debugCtrlFile, serviceName + ', ' + configName],
         [debugCtrlFile, 'this.someData = ' + serviceName],
         [debugCtrlFile, 'this.ENV = ' + configName],
         [debugCtrlFile, 'this.BUILD = ' + configName],
-        [serviceFile, 'service(\'' + serviceName],
+        [serviceFile, 'factory(\'' + serviceName],
       ]);
 
       // templates
-      // assert.fileContent([
-      //   [modulePath + '/templates/debug.html', 'ctrl.someData.binding'],
-      //   [modulePath + '/templates/list-detail.html', 'I scaffold apps'],
-      //   [modulePath + '/templates/list.html', 'Learn more...'],
-      //   [modulePath + '/templates/list.html', moduleName + '.listDetail'],
-      //   [modulePath + '/templates/tabs.html', '<ion-tabs'],
-      //   [modulePath + '/templates/tabs.html', moduleName + '.list'],
-      //   [modulePath + '/templates/tabs.html', moduleName + '.debug'],
-      // ]);
+      assert.fileContent([
+        [modulePath + '/templates/debug.html', 'ctrl.someData.binding'],
+        [modulePath + '/templates/list-detail.html', 'I scaffold apps'],
+        [modulePath + '/templates/list.html', 'Learn more...'],
+        [modulePath + '/templates/list.html', moduleName + '.listDetail'],
+        [modulePath + '/templates/tabs.html', '<ion-tabs'],
+        [modulePath + '/templates/tabs.html', moduleName + '.list'],
+        [modulePath + '/templates/tabs.html', moduleName + '.debug'],
+      ]);
 
       // tests
-      // assert.fileContent([
-      //   [debugSpecFile, 'browser.get(\'/#/' + moduleFolder + '/debug']
-      // ]);
+      assert.fileContent([
+        [debugSpecFile, 'browser.get(\'/#/' + moduleFolder + '/debug']
+      ]);
     });
   };
 
@@ -228,7 +202,14 @@ describe('iac:module', function () {
 
   var sideMenuTests = function (moduleName, options) {
     var moduleFolder = utils.moduleFolder(moduleName);
-    var modulePath = 'app/' + moduleFolder;
+    var modulePath = '';
+
+    if (moduleFolder === 'main') {
+      modulePath = 'app';
+    }
+    else {
+      modulePath = 'app/' + moduleFolder;
+    }
 
     it('sideMenu tests', function () {
       assert.file([
@@ -236,7 +217,7 @@ describe('iac:module', function () {
       ]);
 
       var moduleFile = modulePath + '/' + moduleFolder + '.js';
-      var serviceFile = modulePath + '/services/' + moduleFolder + '-serv.js';
+      var serviceFile = modulePath + '/main/' + moduleFolder + '.service.js';
       var serviceName = utils.serviceName(moduleName);
       var debugCtrlFile, debugCtrlName;
       var menuCtrlFile, menuCtrlName;
@@ -244,39 +225,29 @@ describe('iac:module', function () {
 
       // mainModule tests
       if (options && options.mainModule) {
-        menuCtrlFile = modulePath + '/controllers/menu-ctrl.js';
+        menuCtrlFile = modulePath + '/main/MenuCtrl.ctrl.js';
         menuCtrlName = utils.controllerName('Menu');
-        debugCtrlFile = modulePath + '/controllers/debug-ctrl.js';
+        debugCtrlFile = modulePath + '/main/DebugCtrl.ctrl.js';
         debugCtrlName = utils.controllerName('Debug');
         configName = utils.configName();
 
         // module.js
         assert.fileContent(moduleFile, 'otherwise(\'/' + moduleFolder + '/list');
       }
-      // no mainModule test
-      else {
-        menuCtrlFile = modulePath + '/controllers/' + moduleFolder + '-menu-ctrl.js';
-        menuCtrlName = utils.controllerName(moduleName + 'Menu');
-        debugCtrlFile = modulePath + '/controllers/' + moduleFolder + '-debug-ctrl.js';
-        debugCtrlName = utils.controllerName(moduleName + 'Debug');
-        configName = utils.configName(moduleName);
 
-        // module.js
-        assert.noFileContent(moduleFile, 'otherwise(\'/');
-      }
 
       // in any case
       assert.fileContent([
         // module.js
         [moduleFile, 'abstract: true'],
-        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/menu.html'],
+        [moduleFile, 'templateUrl: \'templates/menu.html\''],
         [moduleFile, 'controller: \'' + menuCtrlName + ' as menu\''],
         [moduleFile, '.state(\'' + moduleName + '.list'],
-        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/list.html'],
+        [moduleFile, 'templateUrl: \'templates/list.html\''],
         [moduleFile, '.state(\'' + moduleName + '.listDetail'],
-        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/list-detail.html'],
+        [moduleFile, 'templateUrl: \'templates/list-detail.html\''],
         [moduleFile, '.state(\'' + moduleName + '.debug'],
-        [moduleFile, 'templateUrl: \'' + moduleFolder + '/templates/debug.html'],
+        [moduleFile, 'templateUrl: \'templates/debug.html\''],
         [moduleFile, 'controller: \'' + debugCtrlName + ' as ctrl'],
 
         // template files
@@ -285,7 +256,7 @@ describe('iac:module', function () {
         [debugCtrlFile, 'this.someData = ' + serviceName],
         [debugCtrlFile, 'this.ENV = ' + configName],
         [debugCtrlFile, 'this.BUILD = ' + configName],
-        [serviceFile, 'service(\'' + serviceName],
+        [serviceFile, 'factory(\'' + serviceName],
         [menuCtrlFile, 'controller(\'' + menuCtrlName],
       ]);
 
@@ -330,7 +301,14 @@ describe('iac:module', function () {
 
   var blankTests = function (moduleName) {
     var moduleFolder = utils.moduleFolder(moduleName);
-    var modulePath = 'app/' + moduleFolder;
+    var modulePath = '';
+
+    if (moduleFolder === 'main') {
+      modulePath = 'app';
+    }
+    else {
+      modulePath = 'app/' + moduleFolder;
+    }
 
     it('blank tests', function () {
       assert.noFile([
