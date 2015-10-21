@@ -27,7 +27,8 @@ gulp.task('watch', ['inject-all'], function () {
   // browser sync server
   bsInit(['app', '.tmp']);
 
-  var watchFiles = paths.jsFiles
+  var watchFiles = 'app/**/*.coffe';
+    watchFiles
     .concat([
       'app/index.html',
       '.tmp/*/styles/*.css', // each module's css
@@ -50,6 +51,7 @@ gulp.task('watch', ['inject-all'], function () {
   });
   // watch for changes in scss
   gulp.watch('app/*/styles/**/*.scss', ['styles']);
+  gulp.watch('app/**/*.coffe', ['coffe']);
   // watch for changes in environment files and new config files
   gulp.watch([
     'app/main/constants/env-*.json',

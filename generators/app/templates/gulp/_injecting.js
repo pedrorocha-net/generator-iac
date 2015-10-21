@@ -8,19 +8,23 @@ var $ = require('gulp-load-plugins')();
 // modules
 var wiredep = require('wiredep');
 var mainBowerFiles = require('main-bower-files');
+var coffee = require('gulp-coffee');
 
 // inject app/**/*.js, bower components, css into index.html
 // inject environment variables into config.js constant
-gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts', 'environment', 'build-vars'], function () {
+gulp.task('inject-all', ['coffe','styles', 'wiredep', 'bower-fonts', 'environment', 'build-vars'], function () {
 
   return gulp.src('app/index.html')
     .pipe(
       $.inject( // app/**/*.js files
-        gulp.src(paths.jsFiles)
+        gulp.src('.tmp/**/*.js')
           .pipe($.plumber()) // use plumber so watch can start despite js errors
           .pipe($.naturalSort())
           .pipe($.angularFilesort()),
-        {relative: true}))
+        {
+          ignorePath: '../.tmp',
+          relative: true,
+        }))
     .pipe(
       $.inject( // inject compiled css
         gulp.src('.tmp/*/styles/*.css', {read: false}),
@@ -32,7 +36,7 @@ gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts', 'environment', 'bui
 });
 
 // build styles to tmp
-gulp.task('styles', ['clean'], function () {
+gulp.task('styles', function () {
 
   // compile css starting from each module's scss
   return gulp.src('app/*/styles/!(_)*.scss')
@@ -41,6 +45,14 @@ gulp.task('styles', ['clean'], function () {
     .pipe($.sass.sync().on('error', $.sass.logError))
     .pipe($.autoprefixer({ browsers: ['last 2 versions'], remove: false}))
     .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('.tmp/'));
+});
+
+// build styles to tmp
+gulp.task('coffe', function () {
+  // compile css starting from each module's scss
+  return gulp.src('app/**/*.coffe')
+    .pipe(coffee())
     .pipe(gulp.dest('.tmp/'));
 });
 
