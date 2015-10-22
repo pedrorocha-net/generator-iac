@@ -51,7 +51,7 @@ gulp.task('watch', ['inject-all'], function () {
   });
   // watch for changes in scss
   gulp.watch('app/*/styles/**/*.scss', ['styles']);
-  gulp.watch('app/**/*.coffe', ['coffe']);
+  gulp.watch('app/**/*.coffee', ['coffee']);
   // watch for changes in environment files and new config files
   gulp.watch([
     'app/main/constants/env-*.json',
