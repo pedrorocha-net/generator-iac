@@ -15,7 +15,7 @@ describe('iac:service', function () {
     });
 
     it('file, module name, service signature', function () {
-      var filePath = 'app/myFeature/someName.service.coffe';
+      var filePath = 'app/myFeature/someName.service.coffee';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
         [filePath, 'factory \'SomeNameFactory\', SomeNameFactory']
@@ -41,7 +41,7 @@ describe('iac:service', function () {
     });
 
     it('file, service signature, debug logic', function () {
-      var filePath = 'app/myFeature/someName.service.coffe';
+      var filePath = 'app/myFeature/someName.service.coffee';
       assert.fileContent([
         [filePath, 'factory \'SomeNameFactory\', SomeNameFactory'],
         [filePath, '@someData = binding:'],

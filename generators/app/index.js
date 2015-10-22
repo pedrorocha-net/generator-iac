@@ -206,7 +206,7 @@ module.exports = yeoman.generators.Base.extend({
       // add random color to navbar
       this.barColor = utils.barColor();
       this.template('_index.html', 'app/index.html');
-      this.template('_app.coffe', 'app/app.coffe');
+      this.template('_app.coffee', 'app/app.coffee');
 
       // other files
       this.directory('hooks', 'hooks');

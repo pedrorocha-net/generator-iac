@@ -94,7 +94,7 @@ describe('iac:module', function () {
       ]);
 
       var moduleFile = modulePath + '/' + moduleFolder + '.coffe';
-      var serviceFile = modulePath + '/main/' + moduleFolder + '.service.coffe';
+      var serviceFile = modulePath + '/main/' + moduleFolder + '.service.coffee';
       var serviceName = utils.serviceName(moduleName);
       var debugCtrlFile, debugCtrlName;
       var debugSpecFile;
@@ -102,7 +102,7 @@ describe('iac:module', function () {
 
       // mainModule tests
       if (options && options.mainModule) {
-        debugCtrlFile = modulePath + '/main/DebugCtrl.ctrl.coffe';
+        debugCtrlFile = modulePath + '/main/DebugCtrl.ctrl.coffee';
         debugCtrlName = utils.controllerName('Debug');
         debugSpecFile = 'test/protractor/main-debug.spec.js';
         configName = utils.configName();
@@ -217,7 +217,7 @@ describe('iac:module', function () {
       ]);
 
       var moduleFile = modulePath + '/' + moduleFolder + '.coffe';
-      var serviceFile = modulePath + '/main/' + moduleFolder + '.service.coffe';
+      var serviceFile = modulePath + '/main/' + moduleFolder + '.service.coffee';
       var serviceName = utils.serviceName(moduleName);
       var debugCtrlFile, debugCtrlName;
       var menuCtrlFile, menuCtrlName;
@@ -225,9 +225,9 @@ describe('iac:module', function () {
 
       // mainModule tests
       if (options && options.mainModule) {
-        menuCtrlFile = modulePath + '/main/MenuCtrl.ctrl.coffe';
+        menuCtrlFile = modulePath + '/main/MenuCtrl.ctrl.coffee';
         menuCtrlName = utils.controllerName('Menu');
-        debugCtrlFile = modulePath + '/main/DebugCtrl.ctrl.coffe';
+        debugCtrlFile = modulePath + '/main/DebugCtrl.ctrl.coffee';
         debugCtrlName = utils.controllerName('Debug');
         configName = utils.configName();
 

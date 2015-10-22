@@ -15,7 +15,7 @@ describe('iac:controller', function () {
     });
 
     it('file, module name, controller signature', function () {
-      var filePath = 'app/someFeature/someName.ctrl.coffe';
+      var filePath = 'app/someFeature/someName.ctrl.coffee';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
         [filePath, 'controller \'SomeNameCtrl\', SomeNameCtrl']
@@ -39,7 +39,7 @@ describe('iac:controller', function () {
     });
 
     it('file, module name', function () {
-      var filePath = 'app/myFeature/some.ctrl.coffe';
+      var filePath = 'app/myFeature/some.ctrl.coffee';
       assert.fileContent([
         [filePath, 'angular.module(\'main\')']
       ]);
@@ -62,7 +62,7 @@ describe('iac:controller', function () {
     });
 
     it('file, controller signature, debug logic & placeholders', function () {
-      var filePath = 'app/myFeature/some.ctrl.coffe';
+      var filePath = 'app/myFeature/some.ctrl.coffee';
       assert.fileContent([
         [filePath, '$log, Main, Config'],
         [filePath, '@someData = Main.'],

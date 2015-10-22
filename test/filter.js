@@ -14,7 +14,7 @@ describe('iac:filter', function () {
     });
 
     it('file, content', function () {
-      var filePath = 'app/someFeature/someName.filter.coffe';
+      var filePath = 'app/someFeature/someName.filter.coffee';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
         [filePath, 'filter \'someName\','],

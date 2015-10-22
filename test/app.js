@@ -61,7 +61,7 @@ describe('m', function () {
     it('creates /app files', function () {
       assert.file([
         'app/index.html',
-        'app/app.coffe'
+        'app/app.coffee'
       ]);
     });
 
@@ -102,9 +102,9 @@ describe('m', function () {
         // proper css path
         ['app/index.html', '<body ng-app="' + answers.appModule + '">'],
         // inject appModule into app.js module
-        ['app/app.coffe', 'angular.module \'' + answers.appModule + '\','],
+        ['app/app.coffee', 'angular.module \'' + answers.appModule + '\','],
         // inject appModule.main into app.js module
-        ['app/app.coffe', '\'main\''],
+        ['app/app.coffee', '\'main\''],
       ]);
     });
 

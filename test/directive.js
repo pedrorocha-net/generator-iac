@@ -14,7 +14,7 @@ describe('iac:directive', function () {
     });
 
     it('file, content', function () {
-      var filePath = 'app/someFeature/someName.directive.coffe';
+      var filePath = 'app/someFeature/someName.directive.coffee';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
         [filePath, 'directive \'someName\','],
