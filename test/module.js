@@ -21,7 +21,7 @@ describe('iac:module', function () {
 
     it('basic files and folders', function () {
       assert.file([
-        modulePath + '/' + moduleFolder + '.coffe',
+        modulePath + '/' + moduleFolder + '.coffee',
         modulePath + '/assets/images',
         modulePath + '/constants',
         modulePath + '/assets/styles/' + moduleFolder + '.scss',
@@ -29,8 +29,8 @@ describe('iac:module', function () {
       ]);
 
       // module.js
-      var moduleFile = modulePath + '/' + moduleFolder + '.coffe';
-      assert.fileContent(moduleFile, '.state(\'' + moduleName + '\'');
+      var moduleFile = modulePath + '/' + moduleFolder + '.coffee';
+      assert.fileContent(moduleFile, '.state \'' + moduleName + '\'');
       assert.fileContent(moduleFile, 'url: \'/' + moduleFolder + '\'');
 
       // config
@@ -93,7 +93,7 @@ describe('iac:module', function () {
         modulePath + '/assets/images/yo@2x.png',
       ]);
 
-      var moduleFile = modulePath + '/' + moduleFolder + '.coffe';
+      var moduleFile = modulePath + '/' + moduleFolder + '.coffee';
       var serviceFile = modulePath + '/main/' + moduleFolder + '.service.coffee';
       var serviceName = utils.serviceName(moduleName);
       var debugCtrlFile, debugCtrlName;
@@ -116,9 +116,9 @@ describe('iac:module', function () {
         // module.js
         [moduleFile, 'abstract: true'],
         [moduleFile, 'templateUrl: \'templates/tabs.html\''],
-        [moduleFile, '.state(\'' + moduleName + '.list'],
+        [moduleFile, '.state \'' + moduleName + '.list'],
         [moduleFile, 'templateUrl: \'templates/list.html\''],
-        [moduleFile, '.state(\'' + moduleName + '.listDetail'],
+        [moduleFile, '.state \'' + moduleName + '.listDetail'],
         [moduleFile, 'templateUrl: \'templates/list-detail.html\''],
         [moduleFile, '.state \'' + moduleName + '.debug'],
         [moduleFile, 'templateUrl: \'templates/debug.html\''],
@@ -216,7 +216,7 @@ describe('iac:module', function () {
         modulePath + '/assets/images/yo@2x.png',
       ]);
 
-      var moduleFile = modulePath + '/' + moduleFolder + '.coffe';
+      var moduleFile = modulePath + '/' + moduleFolder + '.coffee';
       var serviceFile = modulePath + '/main/' + moduleFolder + '.service.coffee';
       var serviceName = utils.serviceName(moduleName);
       var debugCtrlFile, debugCtrlName;
@@ -242,11 +242,11 @@ describe('iac:module', function () {
         [moduleFile, 'abstract: true'],
         [moduleFile, 'templateUrl: \'templates/menu.html\''],
         [moduleFile, 'controller: \'' + menuCtrlName + ' as menu\''],
-        [moduleFile, '.state(\'' + moduleName + '.list'],
+        [moduleFile, '.state \'' + moduleName + '.list'],
         [moduleFile, 'templateUrl: \'templates/list.html\''],
-        [moduleFile, '.state(\'' + moduleName + '.listDetail'],
+        [moduleFile, '.state \'' + moduleName + '.listDetail'],
         [moduleFile, 'templateUrl: \'templates/list-detail.html\''],
-        [moduleFile, '.state(\'' + moduleName + '.debug'],
+        [moduleFile, '.state \'' + moduleName + '.debug'],
         [moduleFile, 'templateUrl: \'templates/debug.html\''],
         [moduleFile, 'controller: \'' + debugCtrlName + ' as ctrl'],
 
@@ -316,7 +316,7 @@ describe('iac:module', function () {
       ]);
 
       // module.js
-      var moduleFile = modulePath + '/' + moduleFolder + '.coffe';
+      var moduleFile = modulePath + '/' + moduleFolder + '.coffee';
       assert.fileContent(moduleFile, 'view-title="' + moduleName + '">');
       assert.fileContent(moduleFile, '/' + moduleFolder);
     });

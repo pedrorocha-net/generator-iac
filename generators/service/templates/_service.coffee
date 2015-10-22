@@ -1,26 +1,22 @@
-do ->
 
-  <%= serviceName %> = ($log) ->
-    $log.log 'Hello from your Service: <%= serviceName %> in module <%= moduleName %>'
+'use strict'
+angular.module('<%= moduleName %>').factory '<%= serviceName %>', <%= serviceName %>
 
-    <% if(options.template === 'debug') { -%>
+<%= serviceName %> = ($log) ->
+  $log.log 'Hello from your Service: <%= serviceName %> in module <%= moduleName %>'
 
-      # some initial data
-      @someData = binding: 'Yes! Got that databinding working'
+  <% if(options.template === 'debug') { -%>
 
-      @changeBriefly = ->
-        initialValue = @someData.binding
-        @someData.binding = 'Yeah this was changed'
-        that = this
-        $timeout (->
-          that.someData.binding = initialValue
-          return
-        ), 500
+    # some initial data
+    @someData = binding: 'Yes! Got that databinding working'
+
+    @changeBriefly = ->
+      initialValue = @someData.binding
+      @someData.binding = 'Yeah this was changed'
+      that = this
+      $timeout (->
+        that.someData.binding = initialValue
         return
+      ), 500
 
-     <% } -%>
-    return
-
-  'use strict'
-  angular.module('<%= moduleName %>').factory '<%= serviceName %>', <%= serviceName %>
-  return
+   <% } -%>

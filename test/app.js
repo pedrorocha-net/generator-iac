@@ -67,7 +67,7 @@ describe('m', function () {
 
     it('creates module named main', function () {
       assert.file([
-        'app/main.coffe',
+        'app/main.coffee',
         'app/constants/env-dev.json',
       ]);
     });
