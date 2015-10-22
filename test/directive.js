@@ -14,10 +14,10 @@ describe('iac:directive', function () {
     });
 
     it('file, content', function () {
-      var filePath = 'app/someFeature/someName.directive.js';
+      var filePath = 'app/someFeature/someName.directive.coffe';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
-        [filePath, 'directive(\'someName\','],
+        [filePath, 'directive \'someName\','],
         [filePath, 'this is the someName directive']
       ]);
     });

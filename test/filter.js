@@ -14,10 +14,10 @@ describe('iac:filter', function () {
     });
 
     it('file, content', function () {
-      var filePath = 'app/someFeature/someName.filter.js';
+      var filePath = 'app/someFeature/someName.filter.coffe';
       assert.fileContent([
         [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
-        [filePath, 'filter(\'someName\','],
+        [filePath, 'filter \'someName\','],
         [filePath, 'someName filter: ']
       ]);
     });

@@ -20,7 +20,7 @@ module.exports = yeoman.generators.NamedBase.extend({
   writing: function () {
     // create filter with snake-case file name
     var folder = 'app/' + this.currentFolder + '/';
-    this.template('_filter.js', folder + this.fileName + '.filter.js');
+    this.template('_filter.coffe', folder + this.fileName + '.filter.coffe');
     // create karma test file
     var testFolder = 'test/karma/' + this.currentFolder + '/';
     this.template('_filter.spec.js', testFolder + this.fileName + '.filter.spec.js');

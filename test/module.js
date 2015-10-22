@@ -21,7 +21,7 @@ describe('iac:module', function () {
 
     it('basic files and folders', function () {
       assert.file([
-        modulePath + '/' + moduleFolder + '.js',
+        modulePath + '/' + moduleFolder + '.coffe',
         modulePath + '/assets/images',
         modulePath + '/constants',
         modulePath + '/assets/styles/' + moduleFolder + '.scss',
@@ -29,7 +29,7 @@ describe('iac:module', function () {
       ]);
 
       // module.js
-      var moduleFile = modulePath + '/' + moduleFolder + '.js';
+      var moduleFile = modulePath + '/' + moduleFolder + '.coffe';
       assert.fileContent(moduleFile, '.state(\'' + moduleName + '\'');
       assert.fileContent(moduleFile, 'url: \'/' + moduleFolder + '\'');
 
@@ -93,8 +93,8 @@ describe('iac:module', function () {
         modulePath + '/assets/images/yo@2x.png',
       ]);
 
-      var moduleFile = modulePath + '/' + moduleFolder + '.js';
-      var serviceFile = modulePath + '/main/' + moduleFolder + '.service.js';
+      var moduleFile = modulePath + '/' + moduleFolder + '.coffe';
+      var serviceFile = modulePath + '/main/' + moduleFolder + '.service.coffe';
       var serviceName = utils.serviceName(moduleName);
       var debugCtrlFile, debugCtrlName;
       var debugSpecFile;
@@ -102,13 +102,13 @@ describe('iac:module', function () {
 
       // mainModule tests
       if (options && options.mainModule) {
-        debugCtrlFile = modulePath + '/main/DebugCtrl.ctrl.js';
+        debugCtrlFile = modulePath + '/main/DebugCtrl.ctrl.coffe';
         debugCtrlName = utils.controllerName('Debug');
         debugSpecFile = 'test/protractor/main-debug.spec.js';
         configName = utils.configName();
 
         // module.js
-        assert.fileContent(moduleFile, 'otherwise(\'/' + moduleFolder + '/list');
+        assert.fileContent(moduleFile, 'otherwise \'/' + moduleFolder + '/list');
       }
 
       // in any case
@@ -120,17 +120,17 @@ describe('iac:module', function () {
         [moduleFile, 'templateUrl: \'templates/list.html\''],
         [moduleFile, '.state(\'' + moduleName + '.listDetail'],
         [moduleFile, 'templateUrl: \'templates/list-detail.html\''],
-        [moduleFile, '.state(\'' + moduleName + '.debug'],
+        [moduleFile, '.state \'' + moduleName + '.debug'],
         [moduleFile, 'templateUrl: \'templates/debug.html\''],
         [moduleFile, 'controller: \'' + debugCtrlName + ' as ctrl'],
 
         // // template files
-        [debugCtrlFile, 'controller(\'' + debugCtrlName],
+        [debugCtrlFile, 'controller \'' + debugCtrlName],
         [debugCtrlFile, serviceName + ', ' + configName],
-        [debugCtrlFile, 'this.someData = ' + serviceName],
-        [debugCtrlFile, 'this.ENV = ' + configName],
-        [debugCtrlFile, 'this.BUILD = ' + configName],
-        [serviceFile, 'factory(\'' + serviceName],
+        [debugCtrlFile, '@someData = ' + serviceName],
+        [debugCtrlFile, '@ENV = ' + configName],
+        [debugCtrlFile, '@BUILD = ' + configName],
+        [serviceFile, 'factory \'' + serviceName],
       ]);
 
       // templates
@@ -216,8 +216,8 @@ describe('iac:module', function () {
         modulePath + '/assets/images/yo@2x.png',
       ]);
 
-      var moduleFile = modulePath + '/' + moduleFolder + '.js';
-      var serviceFile = modulePath + '/main/' + moduleFolder + '.service.js';
+      var moduleFile = modulePath + '/' + moduleFolder + '.coffe';
+      var serviceFile = modulePath + '/main/' + moduleFolder + '.service.coffe';
       var serviceName = utils.serviceName(moduleName);
       var debugCtrlFile, debugCtrlName;
       var menuCtrlFile, menuCtrlName;
@@ -225,14 +225,14 @@ describe('iac:module', function () {
 
       // mainModule tests
       if (options && options.mainModule) {
-        menuCtrlFile = modulePath + '/main/MenuCtrl.ctrl.js';
+        menuCtrlFile = modulePath + '/main/MenuCtrl.ctrl.coffe';
         menuCtrlName = utils.controllerName('Menu');
-        debugCtrlFile = modulePath + '/main/DebugCtrl.ctrl.js';
+        debugCtrlFile = modulePath + '/main/DebugCtrl.ctrl.coffe';
         debugCtrlName = utils.controllerName('Debug');
         configName = utils.configName();
 
         // module.js
-        assert.fileContent(moduleFile, 'otherwise(\'/' + moduleFolder + '/list');
+        assert.fileContent(moduleFile, 'otherwise \'/' + moduleFolder + '/list');
       }
 
 
@@ -251,13 +251,13 @@ describe('iac:module', function () {
         [moduleFile, 'controller: \'' + debugCtrlName + ' as ctrl'],
 
         // template files
-        [debugCtrlFile, 'controller(\'' + debugCtrlName],
+        [debugCtrlFile, 'controller \'' + debugCtrlName],
         [debugCtrlFile, serviceName + ', ' + configName],
-        [debugCtrlFile, 'this.someData = ' + serviceName],
-        [debugCtrlFile, 'this.ENV = ' + configName],
-        [debugCtrlFile, 'this.BUILD = ' + configName],
-        [serviceFile, 'factory(\'' + serviceName],
-        [menuCtrlFile, 'controller(\'' + menuCtrlName],
+        [debugCtrlFile, '@someData = ' + serviceName],
+        [debugCtrlFile, '@ENV = ' + configName],
+        [debugCtrlFile, '@BUILD = ' + configName],
+        [serviceFile, 'factory \'' + serviceName],
+        [menuCtrlFile, 'controller \'' + menuCtrlName],
       ]);
 
       // templates
@@ -316,9 +316,9 @@ describe('iac:module', function () {
       ]);
 
       // module.js
-      var moduleFile = modulePath + '/' + moduleFolder + '.js';
+      var moduleFile = modulePath + '/' + moduleFolder + '.coffe';
       assert.fileContent(moduleFile, 'view-title="' + moduleName + '">');
-      assert.fileContent(moduleFile, moduleFolder + '/templates');
+      assert.fileContent(moduleFile, '/' + moduleFolder);
     });
   };
 

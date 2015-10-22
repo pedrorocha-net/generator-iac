@@ -24,7 +24,7 @@ module.exports = yeoman.generators.NamedBase.extend({
   writing: function () {
     // create controller with snake-case file name
     var folder = 'app/' + this.currentFolder + '/';
-    this.template('_controller.js', folder + this.fileName + '.ctrl.js');
+    this.template('_controller.coffe', folder + this.fileName + '.ctrl.coffe');
     // create karma test file
     var testFolder = 'test/karma/' + this.moduleFolder + '/';
     this.template('_controller.spec.js', testFolder + this.fileName + '.spec.js');

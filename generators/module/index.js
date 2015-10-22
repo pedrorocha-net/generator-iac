@@ -73,7 +73,7 @@ module.exports = yeoman.generators.NamedBase.extend({
       this.menuCtrlName = utils.controllerName(this.moduleName + 'Menu');
       this.debugCtrlName = utils.controllerName(this.moduleName + 'Debug');
     }
-    this.template('_module.js', modulePath + '/' + this.moduleFolder + '.js');
+    this.template('_module.coffe', modulePath + '/' + this.moduleFolder + '.coffe');
     this.template('_module.scss', modulePath + '/assets/styles/' + this.moduleFolder + '.scss');
     // create config constant
     this.composeWith('iac:constant', {
