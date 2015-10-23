@@ -12,7 +12,7 @@ var coffee = require('gulp-coffee');
 
 // inject app/**/*.js, bower components, css into index.html
 // inject environment variables into config.js constant
-gulp.task('inject-all', ['coffee','styles', 'wiredep', 'bower-fonts', 'environment', 'build-vars'], function () {
+gulp.task('inject-all', ['coffee','styles', 'wiredep', 'bower-fonts', 'environment', 'build-vars', 'inject-config'], function () {
 
   return gulp.src('app/index.html')
     .pipe(
@@ -30,6 +30,20 @@ gulp.task('inject-all', ['coffee','styles', 'wiredep', 'bower-fonts', 'environme
         gulp.src('.tmp/*/styles/*.css', {read: false}),
         {
           ignorePath: '../.tmp',
+          relative: true,
+        }))
+    .pipe(gulp.dest('app'));
+});
+
+gulp.task('inject-config', function () {
+  return gulp.src('app/index.html')
+    .pipe(
+      $.inject(
+        gulp.src('app/constants/Config.constant.js'),
+        {
+          starttag: '<!--inject-conf-->',
+          endtag: '<!--endinject-->',
+          ignorePath: 'app',
           relative: true,
         }))
     .pipe(gulp.dest('app'));
@@ -110,7 +124,7 @@ var injectFormat = function (obj) {
 };
 
 gulp.task('environment', function () {
-  return gulp.src('app/*/constants/*config-const.js')
+  return gulp.src('app/constants/Config.constant.js')
     .pipe(
       $.inject(
         gulp.src('app/constants/env-' + options.env + '.json'),
@@ -132,11 +146,11 @@ gulp.task('environment', function () {
             return json;
           }
         }))
-    .pipe(gulp.dest('app/'));
+    .pipe(gulp.dest('app/constants/'));
 });
 
 gulp.task('build-vars', ['environment'], function () {
-  return gulp.src('app/*/constants/*config-const.js')
+  return gulp.src('app/constants/Config.constant.js')
     .pipe(
       $.inject(
         gulp.src(''),
@@ -162,5 +176,5 @@ gulp.task('build-vars', ['environment'], function () {
             }
           }
         }))
-    .pipe(gulp.dest('app/'));
+    .pipe(gulp.dest('app/constants/'));
 });

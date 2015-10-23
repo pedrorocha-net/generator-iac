@@ -1,7 +1,7 @@
 (function(){
 
   'use strict';
-  angular.module('<%= moduleName %>')
+  angular.module('app')
   .constant('<%= constantName %>', {
 
   <% if (options.template === 'config') { -%>
