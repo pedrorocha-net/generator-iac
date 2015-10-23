@@ -60,7 +60,7 @@ gulp.task('build-app', ['inject-all'], function () {
 
 // copy templates
 gulp.task('build-templates', function () {
-  return gulp.src(paths.templates)
+  return gulp.src('app/templates/**/*.html')
   .pipe($.if(options.minify, $.minifyHtml()))
   .pipe(gulp.dest(paths.dist + '/templates/'));
 });
