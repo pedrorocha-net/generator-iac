@@ -18,14 +18,14 @@ angular.module('<%= moduleName %>', [
   <%} else if (answers.template === 'sidemenu') { -%>
     abstract: true
     templateUrl: 'templates/menu.html'
-    controller: '<%= menuCtrlName %> as menu')
+    controller: '<%= menuCtrlName %> as menu'
 
   .state '<%= moduleName %>.list',
     url: '/list'
-    views: 'pageContent': templateUrl: 'templates/list.html')
+    views: 'pageContent': templateUrl: 'templates/list.html'
   .state '<%= moduleName %>.listDetail',
     url: '/list/detail'
-    views: 'pageContent': templateUrl: 'templates/list-detail.html')
+    views: 'pageContent': templateUrl: 'templates/list-detail.html'
   .state '<%= moduleName %>.debug',
     url: '/debug'
     views: 'pageContent':
@@ -33,15 +33,15 @@ angular.module('<%= moduleName %>', [
       controller: '<%= debugCtrlName %> as ctrl'
   <%} else if (answers.template === 'tabs') { -%>
     abstract: true
-    templateUrl: 'templates/tabs.html')
+    templateUrl: 'templates/tabs.html'
   .state '<%= moduleName %>.list',
     url: '/list'
     views: 'tab-list':
-      templateUrl: 'templates/list.html')
+      templateUrl: 'templates/list.html'
   .state '<%= moduleName %>.listDetail',
     url: '/list/detail'
     views: 'tab-list':
-      templateUrl: 'templates/list-detail.html')
+      templateUrl: 'templates/list-detail.html'
   .state '<%= moduleName %>.debug',
     url: '/debug'
     views: 'tab-debug':

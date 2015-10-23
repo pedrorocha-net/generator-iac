@@ -28,7 +28,7 @@ gulp.task('clean', function () {
 
 // concatenate files in build:blocks inside index.html
 // and copy to build folder destinations
-gulp.task('build-app', ['clean', 'inject-all'], function () {
+gulp.task('build-app', ['inject-all'], function () {
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
   var jsFilter = $.filter('**/*.js', {restore: true});
   var cssFilter = $.filter('**/*.css', {restore: true});
@@ -59,14 +59,14 @@ gulp.task('build-app', ['clean', 'inject-all'], function () {
 });
 
 // copy templates
-gulp.task('build-templates', ['clean'], function () {
+gulp.task('build-templates', function () {
   return gulp.src(paths.templates)
   .pipe($.if(options.minify, $.minifyHtml()))
-  .pipe(gulp.dest(paths.dist));
+  .pipe(gulp.dest(paths.dist + '/templates/'));
 });
 
 // copy assets, wait for fonts
-gulp.task('build-assets', ['clean', 'bower-fonts'], function () {
+gulp.task('build-assets', ['bower-fonts'], function () {
   return gulp.src('app/*/assets/**/*')
     .pipe($.if(options.minify, $.imagemin()))
     .pipe(gulp.dest(paths.dist));
