@@ -5,12 +5,14 @@ describe('module: <%= moduleName %>, controller: <%= controllerName %>', functio
   // load the controller's module
   beforeEach(module('<%= moduleName %>'));
   // load all the templates to prevent unexpected $http requests from ui-router
-  beforeEach(module('ngHtml2Js'));
+  // beforeEach(module('ngHtml2Js'));
 
   // instantiate controller
   var <%= controllerName %>;
   beforeEach(inject(function ($controller) {
-    <%= controllerName %> = $controller('<%= controllerName %>');
+    <%= controllerName %> = function() {
+      return $controller('<%= controllerName %>');
+    };
   }));
 
 <% if (options.template !== 'debug') { -%>

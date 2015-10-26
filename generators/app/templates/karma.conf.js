@@ -17,17 +17,18 @@ module.exports = function (config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine', 'angular-filesort'],
 
-    // sort app/**/*.js files
+
+    // sort .tmp/**/*.js files
     angularFilesort: {
       whitelist: [
-        'app/!(bower_components)/**/*.js'
+        '.tmp/**/*.js'
       ]
     },
 
     // list of files / patterns to load in the browser
     files: bowerFiles.concat([
       // other
-      'app/!(bower_components)/**/*.js',
+      '.tmp/**/*.js',
       // test
       'test/karma/**/*.js',
       // templates
@@ -40,15 +41,15 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'app/**/templates/*.html': ['ng-html2js']
+      // 'app/**/templates/*.html': ['ng-html2js']
     },
 
     // use template cache to avoid unexpected $http requests from ui-router
     // https://github.com/angular-ui/ui-router/issues/212#issuecomment-69974072
-    ngHtml2JsPreprocessor: {
-      moduleName: 'ngHtml2Js',
-      stripPrefix: 'app/' // the path must be relative to the app.js
-    },
+    // ngHtml2JsPreprocessor: {
+    //   moduleName: 'ngHtml2Js',
+    //   stripPrefix: 'app/' // the path must be relative to the app.js
+    // },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'

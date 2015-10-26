@@ -5,7 +5,7 @@ describe('module: <%= moduleName %>, directive: <%= directiveName %>', function 
   // load the directive's module
   beforeEach(module('<%= moduleName %>'));
   // load all the templates to prevent unexpected $http requests from ui-router
-  beforeEach(module('ngHtml2Js'));
+  // beforeEach(module('ngHtml2Js'));
 
   var element,
     $rootScope;

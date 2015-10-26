@@ -5,7 +5,7 @@ describe('module: <%= moduleName %>, filter: <%= filterName %>', function () {
   // load the filter's module
   beforeEach(module('<%= moduleName %>'));
   // load all the templates to prevent unexpected $http requests from ui-router
-  beforeEach(module('ngHtml2Js'));
+  // beforeEach(module('ngHtml2Js'));
 
   // initialize a new instance of the filter before each test
   var $filter;

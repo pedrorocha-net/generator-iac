@@ -16,7 +16,7 @@ describe('iac:constant', function () {
     it('constant file contents', function () {
       var filePath = 'app/constants/some.constant.js';
       assert.fileContent([
-        [filePath, 'angular.module(\'' + config.DEFAULT_MODULE + '\')'],
+        [filePath, 'angular.module(\'app\')'],
         [filePath, 'constant(\'some\','],
         [filePath, 'CONSTANT_1: \'meaningful value\'']
       ]);
@@ -33,7 +33,7 @@ describe('iac:constant', function () {
     it('constant file contents', function () {
       var filePath = 'app/constants/someThing.constant.js';
       assert.fileContent([
-        [filePath, 'angular.module(\'myModule\')'],
+        [filePath, 'angular.module(\'app\')'],
         [filePath, 'constant(\'someThing\','],
         [filePath, 'CONSTANT_1: \'meaningful value\'']
       ]);

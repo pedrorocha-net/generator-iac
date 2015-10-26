@@ -1,9 +1,8 @@
 
 'use strict'
-angular.module('<%= moduleName %>').factory '<%= serviceName %>', <%= serviceName %>
 
-<%= serviceName %> = ($log) ->
-  $log.log 'Hello from your Service: <%= serviceName %> in module <%= moduleName %>'
+<%= serviceName %> = () ->
+  return 'Hello from your Service: <%= serviceName %> in module <%= moduleName %>'
 
   <% if(options.template === 'debug') { -%>
 
@@ -20,3 +19,6 @@ angular.module('<%= moduleName %>').factory '<%= serviceName %>', <%= serviceNam
     ), 500
 
    <% } -%>
+
+angular.module('<%= moduleName %>').factory '<%= serviceName %>', <%= serviceName %>
+
