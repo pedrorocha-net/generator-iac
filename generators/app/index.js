@@ -67,13 +67,6 @@ module.exports = yeoman.generators.Base.extend({
         message: 'state a bundle identifier for your project (e.g. com.company.project)',
         validate: utils.validateAppId
       },
-      // bower packages
-      {
-        type: 'checkbox',
-        name: 'bowerPackages',
-        message: 'Choose all bower packages in addition to angular, ionic, angular-ui-router, cordova and ngCordova:',
-        choices: bowerConfig.optional
-      },
       // select platforms
       {
         type: 'checkbox',
@@ -172,11 +165,6 @@ module.exports = yeoman.generators.Base.extend({
     app: function () {
       // prepare bower.json
       var bowerJSON = bowerConfig.bowerJSON;
-      // include selected packages
-      for (var i = 0, bowerPackage; ((bowerPackage = this.answers.bowerPackages[i])); i++) {
-        bowerPackage = bowerPackage.split('#');
-        bowerJSON.dependencies[bowerPackage[0]] = bowerPackage[1];
-      }
 
       // add other properties
       bowerJSON.name = this.answers.appName;

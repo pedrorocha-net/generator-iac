@@ -10,7 +10,11 @@ module.exports = {
       'angular-animate': '~1.4.5',
       'angular-sanitize': '~1.4.5',
       'angular-ui-router': '~0.2.15',
-      'ngCordova': '~0.1.17-alpha'
+      'ngCordova': '~0.1.17-alpha',
+      'angular-dynamic-locale': '~0.1.27',
+      'angular-translate': '~2.7.2',
+      'angular-translate-loader-static-files': '~2.7.2',
+      'angular-localForage': '~1.2.3'
     },
     devDependencies: {
       'angular-mocks': '~1.4.5'
