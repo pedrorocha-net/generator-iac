@@ -30,9 +30,7 @@ module.exports = function (config) {
       // other
       '.tmp/**/*.js',
       // test
-      'test/karma/**/*.js',
-      // templates
-      'app/**/templates/*.html'
+      'test/karma/**/*.js'
     ]),
 
     // list of files to exclude

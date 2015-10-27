@@ -1,9 +1,8 @@
-(function(){
+'use strict';
 
-  'use strict';
+(function(){
   angular.module('app')
   .constant('<%= constantName %>', {
-
   <% if (options.template === 'config') { -%>
     // gulp environment: injects environment vars
     // https://github.com/mwaylabs/generator-m-ionic#gulp-environment
@@ -11,7 +10,6 @@
       /*inject-env*/
       /*endinject*/
     },
-
     // gulp build-vars: injects build vars
     // https://github.com/mwaylabs/generator-m-ionic#gulp-build-vars
     BUILD: {
@@ -21,7 +19,6 @@
   <% } else { -%>
     CONSTANT_1: 'meaningful value',
   <% } -%>
-
-  });
+});
 
 })();
