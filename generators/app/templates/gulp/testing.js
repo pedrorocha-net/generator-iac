@@ -27,6 +27,26 @@ gulp.task('karma:auto', ['linting'], function (done) {
   runKarma(false, done);
 });
 
+gulp.task('test', ['linting', 'istanbul'], function (done) {
+  console.log('testing...');
+});
+
+gulp.task('istanbul', function (cb) {
+  gulp.src('.tmp/**/*.js')
+    .pipe($.istanbul()) // Covering files
+    .pipe($.istanbul.hookRequire())
+    .on('finish', function () {
+      gulp.src('test/karma/**/*.js', {cwd: __dirname})
+        .pipe($.plumber())
+        .pipe($.mocha())
+        .pipe($.istanbul.writeReports()) // Creating the reports after tests ran
+        .on('finish', function () {
+          process.chdir(__dirname);
+          cb();
+        });
+    });
+});
+
 // PROTRACTOR
 // Downloads the selenium webdriver
 gulp.task('webdriver-update', $.protractor.webdriver_update);
