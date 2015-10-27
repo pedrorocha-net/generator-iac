@@ -12,7 +12,7 @@ var coffee = require('gulp-coffee');
 
 // inject app/**/*.js, bower components, css into index.html
 // inject environment variables into config.js constant
-gulp.task('inject-all', ['coffee','styles', 'wiredep', 'bower-fonts', 'environment', 'build-vars', 'inject-config'], function () {
+gulp.task('inject-all', ['coffee','styles', 'wiredep', 'bower-fonts', 'environment', 'build-vars'], function () {
 
   return gulp.src('app/index.html')
     .pipe(

@@ -36,6 +36,8 @@ gulp.task('watch', ['inject-all'], function () {
     ])
     .concat(paths.templates);
 
+  //start inejct-config
+  gulp.start('inject-config');
   // start linting and watching
   gulp.start('linting');
   gulp.watch(watchFiles, function (event) {
