@@ -41,8 +41,8 @@ gulp.task('inject-config', function () {
       $.inject(
         gulp.src('app/constants/Config.constant.js'),
         {
-          starttag: '<!--inject-conf-->',
-          endtag: '<!--endinject-->',
+          starttag: '<!-- inject:conf -->',
+          endtag: '<!-- endinject -->',
           ignorePath: 'app',
           relative: true,
         }))
