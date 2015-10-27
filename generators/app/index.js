@@ -67,22 +67,6 @@ module.exports = yeoman.generators.Base.extend({
         message: 'state a bundle identifier for your project (e.g. com.company.project)',
         validate: utils.validateAppId
       },
-      // ionic css
-      {
-        type: 'list',
-        name: 'ionicCss',
-        message: 'Choose ionic CSS or SASS',
-        choices: [
-          {
-            name: 'ionic CSS (faster, for starters)',
-            value: true
-          },
-          {
-            name: 'ionic SASS (more flexible, for pros)',
-            value: false
-          }
-        ]
-      },
       // bower packages
       {
         type: 'checkbox',

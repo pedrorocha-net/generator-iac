@@ -116,32 +116,9 @@ describe('m', function () {
     });
   });
 
-  describe('ionicCss', function () {
-    var answers = sampleAnswers.getStandard({ionicCss: true});
-
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/app'))
-        .withGenerators([ // configure path to subgenerators
-          path.join(__dirname, '../generators/module'),
-          path.join(__dirname, '../generators/constant'),
-          path.join(__dirname, '../generators/controller'),
-          path.join(__dirname, '../generators/template'),
-          path.join(__dirname, '../generators/service')
-        ])
-        .withOptions({ 'skip-install': true, 'skip-sdk': true }) // execute with options
-        .withPrompts(answers)  // answer prompts
-        .on('end', done);
-    });
-
-    it('includes ionic css', function () {
-      assert.noFileContent('app/assets/styles/main.scss', '$light');
-      assert.fileContent('gulp/injecting.js', '.pipe(wiredep.stream())');
-      assert.fileContent('gulp/injecting.js', 'var DEST = \'www/fonts\';');
-    });
-  });
 
   describe('ionicSass', function () {
-    var answers = sampleAnswers.getStandard({ionicCss: false});
+    var answers = sampleAnswers.getStandard();
 
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
