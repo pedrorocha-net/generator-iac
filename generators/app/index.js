@@ -74,13 +74,6 @@ module.exports = yeoman.generators.Base.extend({
         message: 'Select all platforms you want to support:',
         choices: cordovaConfig.platforms
       },
-      // select plugins
-      {
-        type: 'checkbox',
-        name: 'plugins',
-        message: 'Select all cordova plugins you want to install',
-        choices: cordovaConfig.plugins
-      },
     ];
 
     // prompt and save results in this.answers
@@ -143,16 +136,12 @@ module.exports = yeoman.generators.Base.extend({
       // add plugins and save to config.xml
       .then(function () {
         this.log(chalk.green('Added platforms: ' + this.answers.platforms.join(', ')));
-        if (this.options['skip-sdk'] || !this.answers.plugins.length) {
+        if (this.options['skip-sdk']) {
           return true;
-        }
-        else {
-          return cordova.plugin('add', this.answers.plugins, { save: true });
         }
       }.bind(this))
       // all
       .then(function () {
-        this.log(chalk.green('Added plugins: ' + this.answers.plugins.join(', ')));
         this.log(chalk.green('Cordova project was set up successfully! Project Name: '), chalk.bgGreen(this.answers.appName));
         done();
       }.bind(this))
