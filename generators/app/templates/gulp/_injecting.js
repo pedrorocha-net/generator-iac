@@ -12,7 +12,7 @@ var coffee = require('gulp-coffee');
 
 // inject app/**/*.js, bower components, css into index.html
 // inject environment variables into config.js constant
-gulp.task('inject-all', ['coffee','styles', 'wiredep', 'bower-fonts', 'environment', 'build-vars'], function () {
+gulp.task('inject-all', ['coffee','styles', 'bower-fonts-dev', 'wiredep', 'environment', 'build-vars'], function () {
 
   return gulp.src('app/index.html')
     .pipe(
@@ -84,19 +84,23 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app/'));
 });
 
-// copy bower fonts
-<% if (answers.ionicCss) { -%>
-gulp.task('bower-fonts', ['clean'], function () {
-  // to do www/fonts (ionic css requires it to be in this folder)
-  var DEST = 'www/fonts';
-  var fontFiles = mainBowerFiles({filter: /\.(eot|otf|svg|ttf|woff|woff2)$/i});
-<% } else { -%>
 gulp.task('bower-fonts', function () {
+  // to app/main/assets/fonts (path can be set in app/main/styles/<module>.scss)
+  var DEST = 'www/assets/fonts';
+  var fontFiles = mainBowerFiles({filter: /\.(eot|otf|svg|ttf|woff|woff2)$/i})
+    .concat('app/assets/fonts/**/*');
+
+  return gulp.src(fontFiles)
+    .pipe($.changed(DEST))
+    .pipe(gulp.dest(DEST));
+});
+
+
+gulp.task('bower-fonts-dev', function () {
   // to app/main/assets/fonts (path can be set in app/main/styles/<module>.scss)
   var DEST = 'app/assets/fonts';
   var fontFiles = mainBowerFiles({filter: /\.(eot|otf|svg|ttf|woff|woff2)$/i})
     .concat('app/assets/fonts/**/*');
-<% } -%>
 
   return gulp.src(fontFiles)
     .pipe($.changed(DEST))

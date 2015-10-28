@@ -66,8 +66,21 @@ gulp.task('build-templates', function () {
 });
 
 // copy assets, wait for fonts
-gulp.task('build-assets', ['bower-fonts'], function () {
-  return gulp.src('app/*/assets/**/*')
+gulp.task('build-assets', ['bower-fonts', 'build-images', 'build-config'], function () {
+  return gulp.src('.tmp/assets/**/*')
     .pipe($.if(options.minify, $.imagemin()))
-    .pipe(gulp.dest(paths.dist));
+    .pipe(gulp.dest(paths.dist + '/assets/'));
+});
+
+gulp.task('build-images', function(){
+  return gulp.src('app/assets/images/**/*')
+      .pipe($.if(options.minify, $.imagemin()))
+      .pipe(gulp.dest(paths.dist + '/assets/images/'));
+});
+
+
+gulp.task('build-config', function(){
+  return gulp.src('app/constants/**/*.js')
+      .pipe($.if(options.minify, $.imagemin()))
+      .pipe(gulp.dest(paths.dist + '/constants/'));
 });

@@ -137,7 +137,7 @@ describe('m', function () {
     it('includes ionicSass', function () {
       assert.fileContent('app/assets/styles/main.scss', '$light');
       assert.fileContent('gulp/injecting.js', '.pipe(wiredep.stream({exclude: [\'bower_components/ionic/release/css\']}))');
-      assert.fileContent('gulp/injecting.js', 'var DEST = \'app/assets/fonts\'');
+      assert.fileContent('gulp/injecting.js', 'var DEST = \'www/assets/fonts\'');
     });
   });
 
