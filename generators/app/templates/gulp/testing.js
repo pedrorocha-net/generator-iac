@@ -19,11 +19,11 @@ function runKarma (singleRun, done) {
   }, done).start();
 }
 
-gulp.task('karma', ['linting'], function (done) {
+gulp.task('karma', ['coffee', 'linting'], function (done) {
   runKarma(true, done);
 });
 
-gulp.task('karma:auto', ['linting'], function (done) {
+gulp.task('karma:auto', ['coffee', 'linting'], function (done) {
   runKarma(false, done);
 });
 

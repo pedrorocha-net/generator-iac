@@ -64,10 +64,9 @@ describe('iac:controller', function () {
     it('file, controller signature, debug logic & placeholders', function () {
       var filePath = 'app/myFeature/some.ctrl.coffee';
       assert.fileContent([
-        [filePath, '$log, Main, Config'],
-        [filePath, '@someData = Main.'],
-        [filePath, '@ENV = Config.ENV'],
-        [filePath, '@BUILD = Config.BUILD'],
+        [filePath, '@someData = \'\''],
+        [filePath, '@ENV = \'\''],
+        [filePath, '@BUILD = \'\''],
         [filePath, '@grade = ']
       ]);
     });

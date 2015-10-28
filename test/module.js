@@ -126,10 +126,9 @@ describe('iac:module', function () {
 
         // // template files
         [debugCtrlFile, 'controller \'' + debugCtrlName],
-        [debugCtrlFile, serviceName + ', ' + configName],
-        [debugCtrlFile, '@someData = ' + serviceName],
-        [debugCtrlFile, '@ENV = ' + configName],
-        [debugCtrlFile, '@BUILD = ' + configName],
+        [debugCtrlFile, '@someData ='],
+        [debugCtrlFile, '@ENV ='],
+        [debugCtrlFile, '@BUILD = '],
         [serviceFile, 'factory \'' + serviceName],
       ]);
 
@@ -252,10 +251,9 @@ describe('iac:module', function () {
 
         // template files
         [debugCtrlFile, 'controller \'' + debugCtrlName],
-        [debugCtrlFile, serviceName + ', ' + configName],
-        [debugCtrlFile, '@someData = ' + serviceName],
-        [debugCtrlFile, '@ENV = ' + configName],
-        [debugCtrlFile, '@BUILD = ' + configName],
+        [debugCtrlFile, '@someData ='],
+        [debugCtrlFile, '@ENV ='],
+        [debugCtrlFile, '@BUILD ='],
         [serviceFile, 'factory \'' + serviceName],
         [menuCtrlFile, 'controller \'' + menuCtrlName],
       ]);

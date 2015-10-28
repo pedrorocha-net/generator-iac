@@ -1,13 +1,12 @@
 'use strict'
-angular.module('<%= moduleName %>').controller '<%= controllerName %>', <%= controllerName %>
 
-<%= controllerName %> = ($log<% if(options.template === 'debug') { %>, <%= serviceName %>, <%= configName %><% } %>) ->
-  $log.log 'Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this
+<%= controllerName %> = () ->
+  console.log 'Hello from your Controller: <%= controllerName %> in module <%= moduleName%>:. This is your controller:', this
   <% if (options.template === 'debug') {-%>
   # bind data from services
-  @someData = <%= serviceName %>.someData
-  @ENV = <%= configName %>.ENV
-  @BUILD = <%= configName %>.BUILD
+  @someData = ''
+  @ENV = ''
+  @BUILD = ''
   # PASSWORD EXAMPLE
   @password =
     input: ''
@@ -23,5 +22,7 @@ angular.module('<%= moduleName %>').controller '<%= controllerName %>', <%= cont
       @password.strength = 'weak'
 
   @grade()
+  return
   <% } -%>
 
+angular.module('<%= moduleName %>').controller '<%= controllerName %>', <%= controllerName %>
