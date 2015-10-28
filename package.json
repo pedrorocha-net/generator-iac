@@ -1,6 +1,6 @@
 {
   "name": "generator-iac",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI to help you quickly start developing mobile apps with Ionic Framework, using great tools to increase your development productivity while applying some of the best practices known.",
   "license": "MIT",
   "main": "app/index.js",
